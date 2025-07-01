@@ -8,6 +8,7 @@ import RoadmapSection from '../components/RoadmapSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import Footer from '../components/Footer.vue'
+import TechCarousel from '../components/TechCarousel.vue'
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import Footer from '../components/Footer.vue'
     <Navbar />
     <main>
       <HeroSection />
+      <TechCarousel />
       <ProblemsSection />
       <FeaturesSection />
       <UseCasesSection />

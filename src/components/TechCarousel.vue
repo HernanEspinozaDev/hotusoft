@@ -1,227 +1,128 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
+import hyperledgerLogo from '../assets/hyperledger-fabric-fabric-logo.png'
 
 const carouselRef = ref<HTMLElement>()
-let animationContext: gsap.Context
+const currentIndex = ref(0)
+let intervalId: number | undefined
 
 const techStack = [
   {
     name: 'Hyperledger Fabric',
-    logo: 'https://www.hyperledger.org/wp-content/uploads/2018/03/Hyperledger_Fabric_Logo_Color-1.png',
-    description: 'Enterprise Blockchain Platform'
+    logo: hyperledgerLogo,
+    description: 'Plataforma blockchain empresarial'
   },
   {
     name: 'Go',
     logo: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
-    description: 'High-performance Language'
+    description: 'Lenguaje de alto rendimiento'
   },
   {
     name: 'Blockchain',
     logo: 'https://cdn-icons-png.flaticon.com/512/2092/2092063.png',
-    description: 'Distributed Ledger Technology'
+    description: 'Tecnología de libro mayor distribuido'
   },
   {
     name: 'API RESTful',
     logo: 'https://cdn-icons-png.flaticon.com/512/2164/2164832.png',
-    description: 'Modern Web Services'
-  },
-  {
-    name: 'TypeScript',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    description: 'Type-safe Development'
-  },
-  {
-    name: 'Vue.js',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-    description: 'Progressive Framework'
+    description: 'Servicios web modernos'
   }
 ]
 
-// Duplicate the array to create seamless loop
-const duplicatedTechStack = [...techStack, ...techStack]
+const nextTech = () => {
+  currentIndex.value = (currentIndex.value + 1) % techStack.length
+}
 
 onMounted(() => {
-  if (carouselRef.value) {
-    initializeCarousel()
-  }
+  intervalId = window.setInterval(() => {
+    animateOutIn()
+  }, 2600)
 })
 
 onUnmounted(() => {
-  if (animationContext) {
-    animationContext.kill()
-  }
+  if (intervalId) clearInterval(intervalId)
 })
 
-const initializeCarousel = () => {
-  if (!carouselRef.value) return
-
-  animationContext = gsap.context(() => {
-    const container = carouselRef.value?.querySelector('.carousel-track')
-    const items = gsap.utils.toArray('.tech-item')
-    const itemWidth = 200 // Width including spacing
-    const totalItems = techStack.length
-    const totalWidth = totalItems * itemWidth
-
-    // Set initial position for the container
-    gsap.set(container, {
-      x: 0
-    })
-
-    // Create infinite horizontal scroll animation
-    const tl = gsap.timeline({ repeat: -1 })
-    
-    tl.to(container, {
-      x: -totalWidth,
-      duration: totalItems * 3, // Slower for better visibility
-      ease: "none"
-    })
-
-    // Reset position when animation completes
-    tl.set(container, { x: 0 })
-
-    // Add staggered fade-in effect for items
-    gsap.fromTo(items, 
-      {
+const animateOutIn = () => {
+  const el = carouselRef.value?.querySelector('.tech-focus') as HTMLElement
+  if (!el) {
+    nextTech()
+    return
+  }
+  gsap.to(el, {
+    x: -120,
+    opacity: 0,
+    scale: 0.8,
+    duration: 0.5,
+    ease: 'power2.in',
+    onComplete: () => {
+      nextTech()
+      gsap.fromTo(el, {
+        x: 120,
         opacity: 0,
-        y: 20
-      },
-      {
-        opacity: 0.7,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power2.out"
-      }
-    )
-
-    // Add hover effects for individual items
-    items.forEach((item: any) => {
-      const element = item as HTMLElement
-      
-      element.addEventListener('mouseenter', () => {
-        gsap.to(element, {
-          scale: 1.15,
-          opacity: 1,
-          y: -5,
-          duration: 0.3,
-          ease: "power2.out"
-        })
-        
-        // Add glow effect
-        gsap.to(element.querySelector('.tech-glow'), {
-          opacity: 0.6,
-          scale: 1.2,
-          duration: 0.3,
-          ease: "power2.out"
-        })
+        scale: 0.8
+      }, {
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: 'power2.out'
       })
-
-      element.addEventListener('mouseleave', () => {
-        gsap.to(element, {
-          scale: 1,
-          opacity: 0.7,
-          y: 0,
-          duration: 0.3,
-          ease: "power2.out"
-        })
-        
-        // Remove glow effect
-        gsap.to(element.querySelector('.tech-glow'), {
-          opacity: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        })
-      })
-    })
-
-    // Add floating animation to the entire carousel
-    gsap.to(carouselRef.value, {
-      y: -8,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    })
-
-    // Add subtle pulse animation to logos
-    gsap.to('.tech-logo', {
-      scale: 1.05,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.3,
-      ease: "sine.inOut"
-    })
-
-  }, carouselRef.value)
+    }
+  })
 }
 </script>
 
 <template>
   <div 
     ref="carouselRef"
-    class="relative w-full h-28 overflow-hidden"
+    class="relative w-full flex flex-col items-center justify-center py-16"
+    style="background: radial-gradient(ellipse at 60% 40%, rgba(52,152,219,0.10) 0%, transparent 70%), radial-gradient(ellipse at 20% 80%, rgba(52,152,219,0.08) 0%, transparent 80%);"
   >
-    <!-- Gradient overlays for smooth fade effect -->
-    <div class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-dark-900 via-dark-900/80 to-transparent z-10 pointer-events-none"></div>
-    <div class="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-dark-900 via-dark-900/80 to-transparent z-10 pointer-events-none"></div>
+    <!-- Orbes suaves de fondo -->
+    <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-primary-400/10 rounded-full blur-2xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
     
-    <!-- Carousel track -->
-    <div class="carousel-track flex items-center h-full" style="width: fit-content;">
-      <div
-        v-for="(tech, index) in duplicatedTechStack"
-        :key="`${tech.name}-${index}`"
-        class="tech-item flex flex-col items-center justify-center group cursor-pointer relative"
-        style="width: 200px; flex-shrink: 0;"
-      >
-        <!-- Glow effect background -->
-        <div class="tech-glow absolute inset-0 bg-primary-500/20 rounded-xl blur-lg opacity-0 transition-all duration-300"></div>
-        
-        <!-- Tech logo container -->
-        <div class="relative w-16 h-16 mb-3 flex items-center justify-center">
-          <img
-            :src="tech.logo"
-            :alt="tech.name"
-            class="tech-logo w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
-            loading="lazy"
-          />
-          
-          <!-- Logo background glow -->
-          <div class="absolute inset-0 bg-primary-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        
-        <!-- Tech information -->
-        <div class="text-center px-2">
-          <h4 class="text-sm font-semibold text-dark-100 group-hover:text-primary-400 transition-colors duration-300 mb-1">
-            {{ tech.name }}
+    <!-- Carrusel central -->
+    <div class="relative z-10 flex flex-col items-center justify-center">
+      <transition name="fade-move" mode="out-in">
+        <div
+          :key="techStack[currentIndex].name"
+          class="tech-focus flex flex-col items-center justify-center"
+        >
+          <div class="relative w-32 h-32 md:w-40 md:h-40 mb-4 flex items-center justify-center">
+            <img
+              :src="techStack[currentIndex].logo"
+              :alt="techStack[currentIndex].name"
+              class="w-full h-full object-contain drop-shadow-xl"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-primary-500/10 rounded-full blur-2xl"></div>
+          </div>
+          <h4 class="text-lg md:text-xl font-bold text-dark-100 mb-1 text-center">
+            {{ techStack[currentIndex].name }}
           </h4>
-          <p class="text-xs text-dark-200/70 group-hover:text-dark-200/90 transition-colors duration-300 leading-tight">
-            {{ tech.description }}
+          <p class="text-base md:text-lg text-dark-200/80 text-center max-w-xs">
+            {{ techStack[currentIndex].description }}
           </p>
         </div>
-        
-        <!-- Animated border on hover -->
-        <div class="absolute inset-2 border border-primary-500/30 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-primary-500/60"></div>
-        
-        <!-- Corner accents -->
-        <div class="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-primary-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div class="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-primary-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div class="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-primary-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div class="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-primary-500/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      </div>
+      </transition>
     </div>
-    
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-5 pointer-events-none">
-      <div class="w-full h-full bg-gradient-to-r from-primary-500/10 via-transparent to-primary-500/10"></div>
-      
-      <!-- Subtle grid pattern -->
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(52, 152, 219, 0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
-    </div>
-    
-    <!-- Central highlight line -->
-    <div class="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent transform -translate-y-1/2 pointer-events-none"></div>
   </div>
 </template>
+
+<style scoped>
+.fade-move-enter-active, .fade-move-leave-active {
+  transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-move-enter-from {
+  opacity: 0;
+  transform: translateX(120px) scale(0.8);
+}
+.fade-move-leave-to {
+  opacity: 0;
+  transform: translateX(-120px) scale(0.8);
+}
+</style>

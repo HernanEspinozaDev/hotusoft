@@ -3,7 +3,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { ArrowRight, Play } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { gsap } from 'gsap'
-import TechCarousel from './TechCarousel.vue'
 
 const { t } = useI18n()
 const isLoaded = ref(false)
@@ -257,9 +256,9 @@ const scrollToSection = (sectionId: string) => {
         enter-from-class="opacity-0 transform translate-y-8"
         enter-to-class="opacity-100 transform translate-y-0"
       >
-        <div v-if="isLoaded" class="space-y-8">
+        <div v-if="isLoaded" class="space-y-6 sm:space-y-8">
           <!-- Main title -->
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+          <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight px-2">
             <span class="gradient-bg bg-clip-text text-transparent">
               {{ t('hero.title') }}
             </span>
@@ -270,40 +269,22 @@ const scrollToSection = (sectionId: string) => {
           </h1>
 
           <!-- Description -->
-          <p class="max-w-3xl mx-auto text-xl sm:text-2xl text-dark-200 leading-relaxed">
+          <p class="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-dark-200 leading-relaxed px-4">
             {{ t('hero.description') }}
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div class="flex justify-center items-center px-4">
             <button
-              @click="scrollToSection('features')"
+              @click="scrollToSection('contact')"
               class="btn-primary group"
             >
-              {{ t('hero.cta') }}
-              <ArrowRight class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-            
-            <button
-              @click="scrollToSection('use-cases')"
-              class="btn-secondary group"
-            >
-              <Play class="mr-2 h-5 w-5" />
-              {{ t('hero.secondary') }}
+              Contáctanos
             </button>
           </div>
 
           <!-- Tech stack carousel -->
-          <div class="mt-16">
-            <p class="text-dark-200 text-sm uppercase tracking-wider mb-8">
-              Impulsado por tecnología líder
-            </p>
-            
-            <!-- GSAP Animated Tech Carousel -->
-            <div class="max-w-4xl mx-auto">
-              <TechCarousel />
-            </div>
-          </div>
+          <!-- Eliminado el carrusel de tecnologías aquí -->
         </div>
       </Transition>
     </div>
