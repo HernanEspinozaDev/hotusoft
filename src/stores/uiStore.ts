@@ -1,21 +1,23 @@
 import { defineStore } from 'pinia'
 
-export const useUiStore = defineStore('ui', {
+export const useUIStore = defineStore('ui', {
   state: () => ({
-    currentLocale: 'es' as 'es' | 'en'
+    currentLocale: 'es' as 'es',
+    isMenuOpen: false,
   }),
+  
   actions: {
-    setLocale(newLocale: 'es' | 'en') {
-      this.currentLocale = newLocale
-      // Save to localStorage for persistence
-      localStorage.setItem('locale', newLocale)
+    setLocale(locale: 'es') {
+      this.currentLocale = locale
+      localStorage.setItem('locale', locale)
     },
-    initLocale() {
-      // Try to get locale from localStorage
-      const savedLocale = localStorage.getItem('locale') as 'es' | 'en' | null
-      if (savedLocale && ['es', 'en'].includes(savedLocale)) {
-        this.currentLocale = savedLocale
-      }
+    
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+    },
+    
+    closeMenu() {
+      this.isMenuOpen = false
     }
-  }
+  },
 })

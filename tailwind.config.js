@@ -7,19 +7,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        'off-black': '#101419',
-        'action-blue': '#3498DB',
-        'structure-blue': '#2C5E8A',
-        'dark-charcoal': '#1D232A',
-        'off-white': '#EAEAEA',
-        'light-gray': '#8899A6',
+        primary: {
+          50: '#EBF8FF',
+          100: '#BEE3F8',
+          500: '#3498DB',
+          600: '#2C5E8A',
+          700: '#2B77A3',
+          900: '#1A365D',
+        },
+        dark: {
+          100: '#EAEAEA',
+          200: '#8899A6',
+          800: '#1D232A',
+          900: '#101419',
+        }
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
-      backgroundImage: {
-        'aurora-gradient': 'linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(44, 94, 138, 0.1) 100%)',
+      animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        glow: {
+          '0%': { boxShadow: '0 0 20px rgba(52, 152, 219, 0.5)' },
+          '100%': { boxShadow: '0 0 30px rgba(52, 152, 219, 0.8)' },
+        }
+      },
+      backdropBlur: {
+        xs: '2px',
+      }
     },
   },
   plugins: [],

@@ -1,0 +1,100 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #101419;
+    color: #EAEAEA;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1D232A;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3498DB;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2C5E8A;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #3498DB 0%, #2C5E8A 100%);
+  }
+  
+  .aurora-bg {
+    background: linear-gradient(45deg, #3498DB, #2C5E8A, #3498DB);
+    background-size: 400% 400%;
+    animation: aurora 8s ease infinite;
+  }
+  
+  @keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-dark-900;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 glass-effect hover:bg-white/10 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+
+  /* Enhanced animations for hero section */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+      opacity: 0.6;
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(52, 152, 219, 0.6);
+      opacity: 1;
+    }
+  }
+
+  @keyframes data-flow {
+    0% { transform: translateX(-100px) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100px) scale(1); opacity: 0; }
+  }
+
+  .floating-particle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  .glowing-node {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .data-stream {
+    animation: data-flow 4s linear infinite;
+  }
+}
