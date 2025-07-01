@@ -1,0 +1,18 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- H letter with blockchain node styling -->
+  <rect x="5" y="5" width="30" height="30" rx="6" fill="#101419" stroke="#3498DB" stroke-width="2"/>
+  <path d="M13 12V28M27 12V28M13 20H27" stroke="#3498DB" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Connecting dots representing blockchain -->
+  <circle cx="45" cy="20" r="3" fill="#3498DB"/>
+  <circle cx="55" cy="20" r="3" fill="#3498DB"/>
+  
+  <!-- Text part -->
+  <path d="M65 12H68V28H65V12Z" fill="#EAEAEA"/>
+  <path d="M70 20C70 15.5817 73.5817 12 78 12C82.4183 12 86 15.5817 86 20C86 24.4183 82.4183 28 78 28C73.5817 28 70 24.4183 70 20ZM78 15C75.2386 15 73 17.2386 73 20C73 22.7614 75.2386 25 78 25C80.7614 25 83 22.7614 83 20C83 17.2386 80.7614 15 78 15Z" fill="#EAEAEA"/>
+  <path d="M88 12H91V22C91 24.2091 92.7909 26 95 26C97.2091 26 99 24.2091 99 22V12H102V22C102 25.866 98.866 29 95 29C91.134 29 88 25.866 88 22V12Z" fill="#EAEAEA"/>
+  <path d="M110 12C106.134 12 103 15.134 103 19V28H106V19C106 16.7909 107.791 15 110 15C112.209 15 114 16.7909 114 19V28H117V19C117 15.134 113.866 12 110 12Z" fill="#EAEAEA"/>
+  
+  <!-- Decorative element -->
+  <circle cx="110" cy="12" r="2" fill="#3498DB"/>
+</svg>

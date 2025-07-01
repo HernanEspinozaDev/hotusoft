@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified version of the logo for favicon -->
+  <rect x="2" y="2" width="28" height="28" rx="6" fill="#101419" stroke="#3498DB" stroke-width="2"/>
+  <path d="M10 8V24M22 8V24M10 16H22" stroke="#3498DB" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Decorative dots -->
+  <circle cx="6" cy="6" r="1.5" fill="#3498DB"/>
+  <circle cx="26" cy="26" r="1.5" fill="#3498DB"/>
+</svg>

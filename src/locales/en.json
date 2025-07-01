@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "title": "Hotusoft - Digital Identity and Assets in the Web3 Era",
+    "description": "Innovative digital identity and assets platform based on Hyperledger Fabric and Go"
+  },
+  "header": {
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Redefining Digital Identity and Assets",
+    "subtitle": "Innovative technology platform for identity management and asset tokenization",
+    "description": "Hotusoft redefines user identity management and digital asset tokenization in the enterprise space. Leveraging the power of Hyperledger Fabric and the efficiency of Go, we offer secure, scalable, and frictionless solutions for various industries.",
+    "cta": "Discover How"
+  },
+  "problem": {
+    "title": "Challenges in the Digital Era",
+    "description": "Digitalization has brought persistent problems for businesses and users:",
+    "challenges": [
+      {
+        "title": "Fragmented and Inefficient Identities",
+        "description": "Multiple registrations across different platforms, high operational costs, and poor user experience with repetitive registration processes."
+      },
+      {
+        "title": "Asset Fraud and Uncontrolled Resale",
+        "description": "Counterfeiting of tickets and digital assets, unregulated resale markets, and difficulty verifying asset authenticity."
+      },
+      {
+        "title": "Limitations of Existing Blockchain Solutions",
+        "description": "High transaction costs (gas), lack of privacy and permissioning, and complex learning curve for businesses."
+      }
+    ]
+  },
+  "solution": {
+    "title": "Our Comprehensive Solution",
+    "description": "Hotusoft proposes a complete solution that addresses these challenges through advanced technological architecture and a business-centered approach:",
+    "modules": [
+      {
+        "title": "Decentralized Identity Module (DIM)",
+        "description": "Immutable user registry in Hyperledger Fabric, using robust identifiers like Chilean RUN/RUT to ensure uniqueness and prevent fraud."
+      },
+      {
+        "title": "Asset Tokenization Module",
+        "description": "Representation of assets like tickets as unique digital tokens (NFTs), with rules programmed in Go Chaincode to control their creation, transfer, and resale."
+      },
+      {
+        "title": "Hyperledger Fabric Architecture",
+        "description": "Permissioned blockchain offering zero gas cost, high performance, and privacy through private channels for sensitive data."
+      }
+    ]
+  },
+  "features": {
+    "title": "Technological Advantages",
+    "identityManagement": {
+      "title": "Unified and Verifiable Identity",
+      "description": "Enhanced user experience with single sign-on and seamless identity reuse across multiple integrated applications and services."
+    },
+    "assetManagement": {
+      "title": "Permissioned and Controlled NFTs",
+      "description": "Unique digital tokens with programmed rules to control their complete lifecycle, eliminating counterfeiting and regulating resale."
+    },
+    "verification": {
+      "title": "Go-Native Development",
+      "description": "Smart contracts (Chaincode) written entirely in Go, ensuring consistency, efficiency, and optimal performance."
+    },
+    "interoperability": {
+      "title": "User-Friendly APIs and SDKs",
+      "description": "Robust and well-documented interfaces to facilitate integration with existing systems (web, mobile, backend)."
+    }
+  },
+  "useCases": {
+    "title": "Use Cases and Applications",
+    "description": "The versatility of Hotusoft allows its application in various industries where secure identity and asset traceability are crucial:",
+    "finance": {
+      "title": "Ticketing and Events",
+      "description": "Single user registration, digital tickets as NFTs linked to the buyer's RUN/RUT to eliminate counterfeiting, and official resale marketplace with customizable business rules."
+    },
+    "healthcare": {
+      "title": "Healthcare and Medical Appointments",
+      "description": "Secure patient identification, appointment management as digital tokens to improve capacity and reduce no-shows, and immutable interaction records with privacy controls."
+    },
+    "government": {
+      "title": "Education and Certification",
+      "description": "Issuance of immutable and verifiable digital diplomas and certificates, tamper-proof academic records, and secure campus identification."
+    },
+    "enterprise": {
+      "title": "Loyalty and Points Programs",
+      "description": "Tokenized loyalty points as transferable digital assets, transparent rewards management, and immutable record of accumulation and redemption."
+    }
+  },
+  "valueProposition": {
+    "title": "Value Proposition",
+    "executiveSummary": "Hotusoft is an innovative technology platform that redefines user identity management and digital asset tokenization in the enterprise space. Leveraging the power of Hyperledger Fabric and the efficiency of Go, Hotusoft offers secure, scalable, and frictionless solutions for various industries.",
+    "forBusinesses": {
+      "title": "For Businesses",
+      "benefits": [
+        "Fraud and loss reduction: Less counterfeiting and control over the secondary market.",
+        "Operational efficiency: Simplified user management and reduced administrative costs.",
+        "Greater trust and transparency: An immutable and auditable ledger that builds trust with users and partners.",
+        "Adaptability and scalability: A modular platform that grows with business needs.",
+        "Predictable costs: No variable gas fees, allowing for clearer financial planning."
+      ]
+    },
+    "forUsers": {
+      "title": "For Users",
+      "benefits": [
+        "Frictionless experience: Single registration for multiple services.",
+        "Guaranteed security: Authenticity of their identities and digital assets.",
+        "Fair pricing: Access to regulated and fair secondary markets.",
+        "Control of their assets: Clear visibility of token ownership."
+      ]
+    }
+  },
+  "businessModel": {
+    "title": "Business Model and Market Strategy",
+    "revenue": {
+      "title": "Revenue Model",
+      "streams": [
+        "Subscriptions/Licenses (B2B): SaaS model based on the number of managed users or transactions on the Fabric network.",
+        "Transaction Fees (Controlled): Small commissions for tokenization or asset transfers in regulated marketplaces.",
+        "Custom Development/Consulting: Additional services for clients requiring complex integrations or specific Chaincode."
+      ]
+    },
+    "strategy": {
+      "title": "Go-to-Market Strategy",
+      "steps": [
+        "Initial focus on Chile: Concentration on the events and ticketing industry, leveraging RUN/RUT validation as a key local differentiator.",
+        "Strategic alliances: Collaboration with major event producers, ticketing platforms, and industry associations.",
+        "Content marketing: Educating the market on the benefits of enterprise blockchain, digital identity, and tokenization (whitepapers, webinars, case studies).",
+        "Regional expansion: Once consolidated in Chile, replicate the model in other LatAm markets (e.g., Peru, Colombia) with local identifiers."
+      ]
+    }
+  },
+  "roadmap": {
+    "title": "2-Year Roadmap",
+    "description": "Our journey to the digital future:",
+    "phases": [
+      {
+        "title": "Phase 1 (Current - Month 6): Foundation and Identity MVP",
+        "items": [
+          "Development of the Hyperledger Fabric platform core.",
+          "Implementation of the identity module with RUN/RUT validation.",
+          "Pilot tests with strategic partners in Chile."
+        ]
+      },
+      {
+        "title": "Phase 2 (Month 6 - 12): Tokenization and First Business Cases",
+        "items": [
+          "Launch of the asset tokenization module.",
+          "Integration with the first ticketing platform.",
+          "Development of APIs and SDKs for integrations."
+        ]
+      },
+      {
+        "title": "Phase 3 (Month 12 - 18): Vertical and Ecosystem Expansion",
+        "items": [
+          "Implementation of use cases in healthcare and education.",
+          "Development of a controlled resale marketplace.",
+          "Expansion of the technical and commercial team."
+        ]
+      },
+      {
+        "title": "Phase 4 (Month 18 - 24): Leadership and Regional Growth",
+        "items": [
+          "Expansion to Peru and Colombia markets.",
+          "Adaptation for local identifiers in each country.",
+          "Funding round to accelerate growth."
+        ]
+      }
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "A multidisciplinary team with experience in blockchain, Go development, security, and technology project management.",
+    "members": [
+      {
+        "name": "Founder & CEO",
+        "expertise": "Strategic vision, blockchain, and business development"
+      },
+      {
+        "name": "CTO",
+        "expertise": "Blockchain architecture, Hyperledger Fabric, and Go"
+      },
+      {
+        "name": "Product Lead",
+        "expertise": "Product design, UX, and project management"
+      },
+      {
+        "name": "Development Lead",
+        "expertise": "Fullstack development, smart contracts, and security"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Be Part of the Digital Revolution",
+    "description": "We are looking for strategic partners and investors to accelerate our growth. Contact us for a personalized demonstration or to explore collaboration opportunities.",
+    "button": "Contact Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Submit",
+      "success": "Thank you for contacting us! We will get back to you soon."
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "about": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2023 Hotusoft. All rights reserved."
+  },
+  "problemSolutionSection": {
+    "mainTitle": "The Problem & Our Solution",
+    "mainDescription": "In today's digital world, your identity is fragmented across dozens of platforms. You do not own your data and your digital assets are locked in proprietary ecosystems. Hotusoft provides you with a single self-sovereign digital identity based on blockchain. Securely manage your data, assets, and online interactions from one place.",
+    "problemCard": {
+      "title": "The Problem: Digital Fragmentation",
+      "description": "In today's digital world, your identity is fragmented across dozens of platforms. You do not own your data and your digital assets are locked in proprietary ecosystems."
+    },
+    "solutionCard": {
+      "title": "Our Solution: Unified Identity",
+      "description": "Hotusoft provides you with a single self-sovereign digital identity based on blockchain. Securely manage your data, assets, and online interactions from one place."
+    },
+    "detailedProblems": {
+      "challenges": [
+        {
+          "title": "Fragmented and Inefficient Identities",
+          "description": "Multiple registrations across different platforms, high operational costs, and poor user experience with repetitive registration processes."
+        },
+        {
+          "title": "Asset Fraud and Uncontrolled Resale",
+          "description": "Counterfeiting of tickets and digital assets, unregulated resale markets, and difficulty verifying asset authenticity."
+        },
+        {
+          "title": "Limitations of Existing Blockchain Solutions",
+          "description": "High transaction costs (gas), lack of privacy and permissioning, and complex learning curve for businesses."
+        }
+      ]
+    },
+    "detailedSolutions": {
+      "modules": [
+        {
+          "title": "Decentralized Identity Module (DIM)",
+          "description": "Immutable user registry in Hyperledger Fabric, using robust identifiers like Chilean RUN/RUT to ensure uniqueness and prevent fraud."
+        },
+        {
+          "title": "Asset Tokenization Module",
+          "description": "Representation of assets like tickets as unique digital tokens (NFTs), with rules programmed in Go Chaincode to control their creation, transfer, and resale."
+        },
+        {
+          "title": "Hyperledger Fabric Architecture",
+          "description": "Permissioned blockchain offering zero gas cost, high performance, and privacy through private channels for sensitive data."
+        }
+      ]
+    }
+  }
+}
