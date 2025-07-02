@@ -6,10 +6,10 @@ import AnimatedBackground from '../components/AnimatedBackground.vue'
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-dark-900 text-dark-100 overflow-hidden">
+  <div class="flex flex-col min-h-screen bg-dark-900 text-dark-100 overflow-hidden">
     <AnimatedBackground />
     <Navbar />
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
       <ContactSection />
     </div>
     <Footer />

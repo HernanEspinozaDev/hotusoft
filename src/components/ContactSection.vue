@@ -167,100 +167,189 @@ const submitForm = async () => {
           </div>
         </template>
         <!-- Contact Form -->
-        <Transition
-          appear
-          enter-active-class="transition ease-out duration-800 delay-500"
-          enter-from-class="opacity-0 transform translate-x-8"
-          enter-to-class="opacity-100 transform translate-x-0"
-        >
-          <div v-if="isIntersecting">
-            <form @submit.prevent="submitForm" class="glass-effect p-8 rounded-xl space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <template v-if="!isMobile">
+          <Transition
+            appear
+            enter-active-class="transition ease-out duration-800 delay-500"
+            enter-from-class="opacity-0 transform translate-x-8"
+            enter-to-class="opacity-100 transform translate-x-0"
+          >
+            <div v-if="isIntersecting">
+              <form @submit.prevent="submitForm" class="glass-effect p-8 rounded-xl space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-dark-100 mb-2">
+                      {{ t('contact.form.name') }}
+                    </label>
+                    <input
+                      id="name"
+                      v-model="form.name"
+                      type="text"
+                      required
+                      class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                      placeholder="Tu nombre completo"
+                    >
+                  </div>
+
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-dark-100 mb-2">
+                      {{ t('contact.form.email') }}
+                    </label>
+                    <input
+                      id="email"
+                      v-model="form.email"
+                      type="email"
+                      required
+                      class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                      placeholder="tu@email.com"
+                    >
+                  </div>
+                </div>
+
                 <div>
-                  <label for="name" class="block text-sm font-medium text-dark-100 mb-2">
-                    {{ t('contact.form.name') }}
+                  <label for="company" class="block text-sm font-medium text-dark-100 mb-2">
+                    {{ t('contact.form.company') }}
                   </label>
                   <input
-                    id="name"
-                    v-model="form.name"
+                    id="company"
+                    v-model="form.company"
                     type="text"
-                    required
                     class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    placeholder="Tu nombre completo"
+                    placeholder="Tu empresa"
                   >
                 </div>
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-dark-100 mb-2">
-                    {{ t('contact.form.email') }}
+                  <label for="message" class="block text-sm font-medium text-dark-100 mb-2">
+                    {{ t('contact.form.message') }}
                   </label>
-                  <input
-                    id="email"
-                    v-model="form.email"
-                    type="email"
+                  <textarea
+                    id="message"
+                    v-model="form.message"
+                    rows="5"
                     required
-                    class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                    placeholder="tu@email.com"
-                  >
+                    class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                    placeholder="Cuéntanos sobre tu proyecto..."
+                  ></textarea>
                 </div>
-              </div>
 
+                <button
+                  type="submit"
+                  :disabled="isSubmitting"
+                  class="w-full btn-primary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send class="mr-2 h-5 w-5" />
+                  <span v-if="!isSubmitting">{{ t('contact.form.submit') }}</span>
+                  <span v-else>Enviando...</span>
+                </button>
+
+                <!-- Status Messages -->
+                <Transition
+                  enter-active-class="transition ease-out duration-300"
+                  enter-from-class="opacity-0 transform translate-y-2"
+                  enter-to-class="opacity-100 transform translate-y-0"
+                  leave-active-class="transition ease-in duration-200"
+                  leave-from-class="opacity-100 transform translate-y-0"
+                  leave-to-class="opacity-0 transform translate-y-2"
+                >
+                  <div v-if="submitStatus === 'success'" class="p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                    <p class="text-green-400 text-center">{{ t('contact.form.success') }}</p>
+                  </div>
+                  <div v-else-if="submitStatus === 'error'" class="p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                    <p class="text-red-400 text-center">{{ t('contact.form.error') }}</p>
+                  </div>
+                </Transition>
+              </form>
+            </div>
+          </Transition>
+        </template>
+        <template v-else>
+          <form @submit.prevent="submitForm" class="glass-effect p-8 rounded-xl space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label for="company" class="block text-sm font-medium text-dark-100 mb-2">
-                  {{ t('contact.form.company') }}
+                <label for="name" class="block text-sm font-medium text-dark-100 mb-2">
+                  {{ t('contact.form.name') }}
                 </label>
                 <input
-                  id="company"
-                  v-model="form.company"
+                  id="name"
+                  v-model="form.name"
                   type="text"
+                  required
                   class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
-                  placeholder="Tu empresa"
+                  placeholder="Tu nombre completo"
                 >
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-medium text-dark-100 mb-2">
-                  {{ t('contact.form.message') }}
+                <label for="email" class="block text-sm font-medium text-dark-100 mb-2">
+                  {{ t('contact.form.email') }}
                 </label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  rows="5"
+                <input
+                  id="email"
+                  v-model="form.email"
+                  type="email"
                   required
-                  class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Cuéntanos sobre tu proyecto..."
-                ></textarea>
+                  class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                  placeholder="tu@email.com"
+                >
               </div>
+            </div>
 
-              <button
-                type="submit"
-                :disabled="isSubmitting"
-                class="w-full btn-primary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+            <div>
+              <label for="company" class="block text-sm font-medium text-dark-100 mb-2">
+                {{ t('contact.form.company') }}
+              </label>
+              <input
+                id="company"
+                v-model="form.company"
+                type="text"
+                class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                placeholder="Tu empresa"
               >
-                <Send class="mr-2 h-5 w-5" />
-                <span v-if="!isSubmitting">{{ t('contact.form.submit') }}</span>
-                <span v-else>Enviando...</span>
-              </button>
+            </div>
 
-              <!-- Status Messages -->
-              <Transition
-                enter-active-class="transition ease-out duration-300"
-                enter-from-class="opacity-0 transform translate-y-2"
-                enter-to-class="opacity-100 transform translate-y-0"
-                leave-active-class="transition ease-in duration-200"
-                leave-from-class="opacity-100 transform translate-y-0"
-                leave-to-class="opacity-0 transform translate-y-2"
-              >
-                <div v-if="submitStatus === 'success'" class="p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
-                  <p class="text-green-400 text-center">{{ t('contact.form.success') }}</p>
-                </div>
-                <div v-else-if="submitStatus === 'error'" class="p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
-                  <p class="text-red-400 text-center">{{ t('contact.form.error') }}</p>
-                </div>
-              </Transition>
-            </form>
-          </div>
-        </Transition>
+            <div>
+              <label for="message" class="block text-sm font-medium text-dark-100 mb-2">
+                {{ t('contact.form.message') }}
+              </label>
+              <textarea
+                id="message"
+                v-model="form.message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 bg-dark-800 border border-dark-200/20 rounded-lg text-dark-100 placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                placeholder="Cuéntanos sobre tu proyecto..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              :disabled="isSubmitting"
+              class="w-full btn-primary flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <Send class="mr-2 h-5 w-5" />
+              <span v-if="!isSubmitting">{{ t('contact.form.submit') }}</span>
+              <span v-else>Enviando...</span>
+            </button>
+
+            <!-- Status Messages -->
+            <Transition
+              enter-active-class="transition ease-out duration-300"
+              enter-from-class="opacity-0 transform translate-y-2"
+              enter-to-class="opacity-100 transform translate-y-0"
+              leave-active-class="transition ease-in duration-200"
+              leave-from-class="opacity-100 transform translate-y-0"
+              leave-to-class="opacity-0 transform translate-y-2"
+            >
+              <div v-if="submitStatus === 'success'" class="p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                <p class="text-green-400 text-center">{{ t('contact.form.success') }}</p>
+              </div>
+              <div v-else-if="submitStatus === 'error'" class="p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                <p class="text-red-400 text-center">{{ t('contact.form.error') }}</p>
+              </div>
+            </Transition>
+          </form>
+        </template>
       </div>
     </div>
   </section>

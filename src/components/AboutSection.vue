@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" ref="target" class="py-20 bg-dark-800/50">
+  <section id="about" ref="target" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl sm:text-5xl font-bold mb-6">
@@ -53,13 +53,46 @@ onMounted(() => {
             </p>
           </div>
         </template>
-        <Transition
-          appear
-          enter-active-class="transition ease-out duration-800 delay-500"
-          enter-from-class="opacity-0 transform translate-x-8"
-          enter-to-class="opacity-100 transform translate-x-0"
-        >
-          <div v-if="isIntersecting" class="relative">
+        <template v-if="!isMobile">
+          <Transition
+            appear
+            enter-active-class="transition ease-out duration-800 delay-500"
+            enter-from-class="opacity-0 transform translate-x-8"
+            enter-to-class="opacity-100 transform translate-x-0"
+          >
+            <div v-if="isIntersecting" class="relative">
+              <div class="absolute inset-0 gradient-bg rounded-3xl opacity-20 blur-3xl"></div>
+              <div class="relative grid grid-cols-1 gap-6">
+                <div class="glass-effect p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300">
+                  <h4 class="text-xl font-bold mb-2 text-primary-500">Nuestro Propósito</h4>
+                  <p class="text-dark-200 leading-relaxed">
+                    En Hotu Software Solutions, nuestro propósito es construir un futuro digital más seguro, transparente y eficiente, desarrollando soluciones blockchain empresariales innovadoras y accesibles que transformen la gestión de identidades y activos digitales para empresas de todos los tamaños.
+                  </p>
+                </div>
+                <div class="glass-effect p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300">
+                  <div class="flex items-center justify-center mb-2">
+                    <Target class="h-5 w-5 text-primary-500 mr-2" />
+                    <h3 class="text-lg font-semibold text-dark-100">Misión</h3>
+                  </div>
+                  <p class="text-dark-200 leading-relaxed">
+                    Nuestra misión es democratizar el acceso a tecnologías blockchain empresariales, proporcionando herramientas seguras y fáciles de usar para organizaciones de todos los tamaños.
+                  </p>
+                </div>
+                <div class="glass-effect p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300">
+                  <div class="flex items-center justify-center mb-2">
+                    <Eye class="h-5 w-5 text-primary-500 mr-2" />
+                    <h3 class="text-lg font-semibold text-dark-100">Visión</h3>
+                  </div>
+                  <p class="text-dark-200 leading-relaxed">
+                    Visualizamos un futuro donde cada individuo tenga control total sobre su identidad digital y donde los activos digitales sean tan seguros y confiables como los físicos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Transition>
+        </template>
+        <template v-else>
+          <div class="relative">
             <div class="absolute inset-0 gradient-bg rounded-3xl opacity-20 blur-3xl"></div>
             <div class="relative grid grid-cols-1 gap-6">
               <div class="glass-effect p-6 rounded-xl text-center hover:bg-white/10 transition-all duration-300">
@@ -88,7 +121,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-        </Transition>
+        </template>
       </div>
     </div>
   </section>
