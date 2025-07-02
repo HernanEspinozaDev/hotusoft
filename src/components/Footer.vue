@@ -17,13 +17,13 @@ const scrollToSection = (sectionId: string) => {
 const quickLinks = [
   { key: 'problems', id: 'problems' },
   { key: 'features', id: 'features' },
-  { key: 'useCases', id: 'use-cases' },
-  { key: 'roadmap', id: 'roadmap' }
+  { key: 'useCases', id: 'use-cases' }
 ]
 
 const companyLinks = [
-  { key: 'about', id: 'about' },
-  { key: 'contact', id: 'contact' }
+  { key: 'roadmap', route: '/roadmap' },
+  { key: 'about', route: '/about' },
+  { key: 'contact', route: '/contact' }
 ]
 
 const socialLinks = [
@@ -41,11 +41,13 @@ const socialLinks = [
         <!-- Brand -->
         <div class="col-span-1 md:col-span-2">
           <div class="flex items-center mb-4">
-            <img 
-              :src="hotusoftLogo" 
-              alt="Hotusoft Logo" 
-              class="h-14 w-auto"
-            />
+            <router-link to="/" class="block focus:outline-none focus:ring-2 focus:ring-primary-500 rounded">
+              <img 
+                :src="hotusoftLogo" 
+                alt="Hotusoft Logo" 
+                class="h-14 w-auto"
+              />
+            </router-link>
           </div>
           <p class="text-dark-200 mb-6 max-w-md">
             {{ t('footer.description') }}
@@ -83,20 +85,12 @@ const socialLinks = [
           <h4 class="text-lg font-semibold text-dark-100 mb-4">{{ t('footer.links.company') }}</h4>
           <ul class="space-y-3">
             <li v-for="link in companyLinks" :key="link.key">
-              <button
-                @click="scrollToSection(link.id)"
-                class="text-dark-200 hover:text-primary-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+              <router-link
+                :to="link.route"
+                class="text-dark-200 hover:text-primary-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded block"
               >
                 {{ t(`nav.${link.key}`) }}
-              </button>
-            </li>
-            <li>
-              <a
-                href="mailto:contacto@hotusoft.com"
-                class="text-dark-200 hover:text-primary-500 transition-colors duration-300"
-              >
-                Soporte
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>

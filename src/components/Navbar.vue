@@ -53,16 +53,16 @@ const navItems = [
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <button 
-            @click="scrollToSection('hero')"
-            class="hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+          <router-link 
+            to="/"
+            class="hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded block"
           >
             <img 
               :src="hotusoftLogo" 
               alt="Hotusoft Logo" 
               class="h-12 w-auto"
             />
-          </button>
+          </router-link>
         </div>
 
         <!-- Desktop Navigation -->
