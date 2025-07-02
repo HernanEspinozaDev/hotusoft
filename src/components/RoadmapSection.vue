@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CheckCircle, Clock, Circle } from 'lucide-vue-next'
 import { useIntersectionObserver } from '../composables/useIntersectionObserver'
+import { CheckCircle, Clock, Circle } from 'lucide-vue-next'
 
 const { target, isIntersecting } = useIntersectionObserver(0.2)
 
@@ -59,14 +58,6 @@ const getStatusIcon = (status: string) => {
     case 'completed': return CheckCircle
     case 'in-progress': return Clock
     default: return Circle
-  }
-}
-
-const getStatusColor = (status: string) => {
-  switch (status) {
-    case 'completed': return 'text-green-500'
-    case 'in-progress': return 'text-primary-500'
-    default: return 'text-dark-200'
   }
 }
 </script>

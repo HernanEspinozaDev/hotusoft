@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import RoadmapView from '../views/RoadmapView.vue'
 import AboutView from '../views/AboutView.vue'
 import HeroFullView from '../views/HeroFullView.vue'
@@ -29,7 +28,7 @@ const router = createRouter({
       component: AboutView
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_, __, savedPosition) {
     if (savedPosition) {
       return savedPosition
     }

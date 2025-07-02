@@ -5,8 +5,6 @@ import hotusoftLogo from '../assets/HotuSoft Logo Large.png'
 
 const { t } = useI18n()
 
-const currentYear = new Date().getFullYear()
-
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
   if (element) {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { ArrowRight, Play, AlertTriangle, Shield, Zap, User, Coins, Network, Cpu, TrendingUp, Calendar, Heart, GraduationCap, CheckCircle } from 'lucide-vue-next'
+import { AlertTriangle, Shield, Zap, User, Coins, Network, Cpu, TrendingUp, Calendar, Heart, GraduationCap, CheckCircle } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { gsap } from 'gsap'
 import hyperledgerLogo from '../assets/hyperledger-fabric-fabric-logo.png'

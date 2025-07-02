@@ -16,14 +16,6 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 }
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-    uiStore.closeMenu()
-  }
-}
-
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })

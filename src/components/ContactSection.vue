@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Send, Mail, Phone, MapPin } from 'lucide-vue-next'
+import { Send, Mail, MapPin } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { useIntersectionObserver } from '../composables/useIntersectionObserver'
 
