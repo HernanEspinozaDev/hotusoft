@@ -1,40 +1,58 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref } from 'vue'
 import { CheckCircle, Clock, Circle } from 'lucide-vue-next'
-import { useI18n } from 'vue-i18n'
 import { useIntersectionObserver } from '../composables/useIntersectionObserver'
 
-const { t } = useI18n()
 const { target, isIntersecting } = useIntersectionObserver(0.2)
 
-const roadmapItems = computed(() => {
-  return [
-    {
-      quarter: t('roadmap.items.0.quarter'),
-      title: t('roadmap.items.0.title'),
-      description: t('roadmap.items.0.description'),
-      status: t('roadmap.items.0.status')
-    },
-    {
-      quarter: t('roadmap.items.1.quarter'),
-      title: t('roadmap.items.1.title'),
-      description: t('roadmap.items.1.description'),
-      status: t('roadmap.items.1.status')
-    },
-    {
-      quarter: t('roadmap.items.2.quarter'),
-      title: t('roadmap.items.2.title'),
-      description: t('roadmap.items.2.description'),
-      status: t('roadmap.items.2.status')
-    },
-    {
-      quarter: t('roadmap.items.3.quarter'),
-      title: t('roadmap.items.3.title'),
-      description: t('roadmap.items.3.description'),
-      status: t('roadmap.items.3.status')
-    }
-  ]
-})
+const roadmapItems = [
+  {
+    quarter: 'Q4 2024',
+    title: 'Fundación y Estrategia',
+    status: 'completed',
+    description: [
+      'Desarrollo y maduración de la idea.',
+      'Constitución legal de Hotusoft.'
+    ]
+  },
+  {
+    quarter: 'Q1 2025',
+    title: 'Desarrollo Inicial y Presencia Digital',
+    status: 'completed',
+    description: [
+      'Creación de la página web y plataforma digital.',
+      'Comienzo del desarrollo del backend en Go.',
+      'Creación de los primeros prototipos de smart contracts.'
+    ]
+  },
+  {
+    quarter: 'Q2 2025',
+    title: 'Construcción del MVP',
+    status: 'completed',
+    description: [
+      'Desarrollo de la primera fase del Producto Mínimo Viable (MVP).'
+    ]
+  },
+  {
+    quarter: 'Q3 2025',
+    title: 'Financiamiento y Maduración Tecnológica',
+    status: 'in-progress',
+    description: [
+      'Gestión de Fondos para Infraestructura Cloud: Búsqueda activa y obtención de financiamiento para asegurar los recursos de infraestructura en la nube necesarios para soportar el despliegue y crecimiento del MVP.',
+      'Madurez y Funcionalidad del MVP: Evolución del producto mínimo viable, añadiendo funcionalidades avanzadas y mejorando la experiencia de usuario.',
+      'Integración con Smart Contracts: Se completará la vinculación directa y operativa del MVP con los smart contracts, asegurando la lógica de negocio en la blockchain.'
+    ]
+  },
+  {
+    quarter: 'Q4 2025',
+    title: 'Unificación y Experiencia de Usuario',
+    status: 'planned',
+    description: [
+      'Consolidación de la Plataforma: Unificación total del MVP y la capa de smart contracts para operar como un ecosistema tecnológico cohesionado.',
+      'Desarrollo de Dashboard y Wallet: Comienzo del diseño y la creación de la interfaz de usuario final, incluyendo un panel de control (Dashboard) y una billetera digital (Wallet).'
+    ]
+  }
+]
 
 const getStatusIcon = (status: string) => {
   switch (status) {
@@ -65,11 +83,11 @@ const getStatusColor = (status: string) => {
         <div v-if="isIntersecting" class="text-center mb-16">
           <h2 class="text-4xl sm:text-5xl font-bold mb-6">
             <span class="gradient-bg bg-clip-text text-transparent">
-              {{ t('roadmap.title') }}
+              Estado y Proyección
             </span>
           </h2>
           <p class="text-xl text-dark-200 max-w-3xl mx-auto">
-            {{ t('roadmap.subtitle') }}
+            Roadmap interactivo de Hotusoft: fases completadas y próximas etapas.
           </p>
         </div>
       </Transition>
@@ -124,10 +142,9 @@ const getStatusColor = (status: string) => {
               <h3 class="text-2xl font-semibold mb-3 text-dark-100 group-hover:text-primary-500 transition-colors duration-300">
                 {{ item.title }}
               </h3>
-              
-              <p class="text-dark-200 leading-relaxed">
-                {{ item.description }}
-              </p>
+              <ul class="text-dark-200 leading-relaxed list-disc pl-5 space-y-1">
+                <li v-for="(desc, i) in item.description" :key="i">{{ desc }}</li>
+              </ul>
             </div>
           </div>
         </TransitionGroup>

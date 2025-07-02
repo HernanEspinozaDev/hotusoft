@@ -1,0 +1,17 @@
+<script setup lang="ts">
+import Navbar from '../components/Navbar.vue'
+import ContactSection from '../components/ContactSection.vue'
+import Footer from '../components/Footer.vue'
+import AnimatedBackground from '../components/AnimatedBackground.vue'
+</script>
+
+<template>
+  <div class="relative min-h-screen bg-dark-900 text-dark-100 overflow-hidden">
+    <AnimatedBackground />
+    <Navbar />
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <ContactSection />
+    </div>
+    <Footer />
+  </div>
+</template> 

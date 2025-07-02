@@ -84,24 +84,22 @@ const submitForm = async () => {
                   <p class="text-dark-200">contacto@hotusoft.com</p>
                 </div>
               </div>
-
-              <div class="flex items-center">
-                <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
-                  <Phone class="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-dark-100">Teléfono</h3>
-                  <p class="text-dark-200">+34 900 123 456</p>
-                </div>
-              </div>
-
               <div class="flex items-center">
                 <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
                   <MapPin class="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 class="text-lg font-semibold text-dark-100">Ubicación</h3>
-                  <p class="text-dark-200">Madrid, España</p>
+                  <h3 class="text-lg font-semibold text-dark-100">Dirección</h3>
+                  <p class="text-dark-200">Avenida Apoquindo 6410, oficina 1004, comuna de Las Condes.</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
+                  <span class="h-6 w-6 text-white font-bold flex items-center justify-center">🏢</span>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-dark-100">Empresa</h3>
+                  <p class="text-dark-200">HOTU SOFTWARE SOLUTIONS SPA</p>
                 </div>
               </div>
             </div>

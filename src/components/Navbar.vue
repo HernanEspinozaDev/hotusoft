@@ -3,9 +3,12 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 import { useUIStore } from '../stores/uiStore'
 import { useI18n } from 'vue-i18n'
+import hotusoftLogo from '../assets/HotuSoft Logo Large.png'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const uiStore = useUIStore()
+const router = useRouter()
 
 const isScrolled = ref(false)
 
@@ -30,13 +33,10 @@ onUnmounted(() => {
 })
 
 const navItems = [
-  { key: 'home', id: 'hero' },
-  { key: 'problems', id: 'problems' },
-  { key: 'features', id: 'features' },
-  { key: 'useCases', id: 'use-cases' },
-  { key: 'roadmap', id: 'roadmap' },
-  { key: 'about', id: 'about' },
-  { key: 'contact', id: 'contact' }
+  { key: 'home', route: '/' },
+  { key: 'roadmap', route: '/roadmap' },
+  { key: 'about', route: '/about' },
+  { key: 'contact', route: '/contact' }
 ]
 </script>
 
@@ -55,9 +55,13 @@ const navItems = [
         <div class="flex-shrink-0">
           <button 
             @click="scrollToSection('hero')"
-            class="text-2xl font-bold gradient-bg bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+            class="hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
           >
-            Hotusoft
+            <img 
+              :src="hotusoftLogo" 
+              alt="Hotusoft Logo" 
+              class="h-12 w-auto"
+            />
           </button>
         </div>
 
@@ -67,7 +71,7 @@ const navItems = [
             <button
               v-for="item in navItems"
               :key="item.key"
-              @click="scrollToSection(item.id)"
+              @click="router.push(item.route)"
               class="text-dark-100 hover:text-primary-500 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               {{ t(`nav.${item.key}`) }}
@@ -105,7 +109,7 @@ const navItems = [
           <button
             v-for="item in navItems"
             :key="item.key"
-            @click="scrollToSection(item.id)"
+            @click="router.push(item.route)"
             class="text-dark-100 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             {{ t(`nav.${item.key}`) }}

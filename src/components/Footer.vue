@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Github, Linkedin, Twitter, Mail } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
+import hotusoftLogo from '../assets/HotuSoft Logo Large.png'
 
 const { t } = useI18n()
 
@@ -40,9 +41,11 @@ const socialLinks = [
         <!-- Brand -->
         <div class="col-span-1 md:col-span-2">
           <div class="flex items-center mb-4">
-            <h3 class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
-              Hotusoft
-            </h3>
+            <img 
+              :src="hotusoftLogo" 
+              alt="Hotusoft Logo" 
+              class="h-14 w-auto"
+            />
           </div>
           <p class="text-dark-200 mb-6 max-w-md">
             {{ t('footer.description') }}
@@ -102,7 +105,7 @@ const socialLinks = [
       <div class="mt-12 pt-8 border-t border-dark-200/10">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-dark-200 text-sm">
-            {{ t('footer.copyright').replace('2024', currentYear.toString()) }}
+            © 2024 Hotusoft. Todos los derechos reservados.
           </p>
           <div class="flex space-x-6 mt-4 md:mt-0">
             <a href="#" class="text-dark-200 hover:text-primary-500 text-sm transition-colors duration-300">
