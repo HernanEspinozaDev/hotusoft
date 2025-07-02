@@ -98,3 +98,9 @@
     animation: data-flow 4s linear infinite;
   }
 }
+
+@media (max-width: 639px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

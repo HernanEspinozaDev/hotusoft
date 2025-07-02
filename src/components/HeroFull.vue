@@ -10,22 +10,31 @@ const { t } = useI18n()
 const isLoaded = ref(false)
 const heroRef = ref<HTMLElement>()
 const particlesRef = ref<HTMLElement>()
+const isMobile = ref(false)
 
 let animationContext: gsap.Context
 
 onMounted(() => {
+  isMobile.value = window.innerWidth < 640
   setTimeout(() => {
     isLoaded.value = true
   }, 100)
   if (heroRef.value && particlesRef.value) {
     initializeAnimations()
   }
+  window.addEventListener('resize', () => {
+    isMobile.value = window.innerWidth < 640
+  })
+  intervalId = window.setInterval(() => {
+    animateOutIn()
+  }, 2600)
 })
 
 onUnmounted(() => {
   if (animationContext) {
     animationContext.kill()
   }
+  if (intervalId) clearInterval(intervalId)
 })
 
 const initializeAnimations = () => {
@@ -175,14 +184,7 @@ let intervalId: number | undefined
 const nextTech = () => {
   currentIndex.value = (currentIndex.value + 1) % techStack.length
 }
-onMounted(() => {
-  intervalId = window.setInterval(() => {
-    animateOutIn()
-  }, 2600)
-})
-onUnmounted(() => {
-  if (intervalId) clearInterval(intervalId)
-})
+
 const animateOutIn = () => {
   const el = document.querySelector('.tech-focus') as HTMLElement
   if (!el) {
@@ -294,33 +296,57 @@ const useCasesItems = [
   <section ref="heroRef" class="relative min-h-screen h-auto flex flex-col justify-start items-center text-dark-100 overflow-hidden">
     <!-- Fondo animado y partículas -->
     <div ref="particlesRef" class="absolute inset-0 h-full w-full pointer-events-none z-0"></div>
-    <div class="floating-orb-1 absolute top-0 left-0 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl z-0"></div>
-    <div class="floating-orb-2 absolute bottom-0 right-0 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl z-0"></div>
+    <div class="floating-orb-1 absolute top-0 left-0 w-40 h-40 sm:w-96 sm:h-96 bg-primary-500/20 rounded-full blur-2xl sm:blur-3xl z-0"></div>
+    <div class="floating-orb-2 absolute bottom-0 right-0 w-40 h-40 sm:w-96 sm:h-96 bg-primary-600/20 rounded-full blur-2xl sm:blur-3xl z-0"></div>
 
     <!-- Contenido principal HeroFull -->
     <div class="relative z-10 w-full flex flex-col">
       <!-- Hero principal y carrusel en paralelo -->
-      <div class="w-full max-w-6xl mx-auto pt-32 pb-16 flex flex-col md:flex-row items-center justify-center gap-12 text-left min-h-screen">
+      <div class="w-full max-w-6xl mx-auto pt-24 sm:pt-32 pb-8 sm:pb-16 flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-12 text-left min-h-[80vh] sm:min-h-screen">
         <!-- Columna izquierda: título, subtítulo, botones -->
-        <div class="flex-1 min-w-[260px] md:max-w-lg">
-          <h1 class="text-5xl sm:text-6xl font-bold mb-6 gradient-bg bg-clip-text text-transparent text-left">
+        <div class="flex-1 min-w-[200px] max-w-full md:max-w-lg w-full">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 gradient-bg bg-clip-text text-transparent text-center sm:text-left">
             {{ t('hero.title') }}
           </h1>
-          <p class="text-xl sm:text-2xl text-dark-200 mb-8 text-left">
+          <p class="text-base sm:text-xl md:text-2xl text-dark-200 mb-6 sm:mb-8 text-center sm:text-left">
             {{ t('hero.subtitle') }}
           </p>
         </div>
         <!-- Columna derecha: carrusel -->
         <div class="flex-1 w-full max-w-xl">
           <div 
-            class="relative w-full flex flex-col items-center justify-center py-12"
+            class="relative w-full flex flex-col items-center justify-center py-8 sm:py-12"
             style="background: radial-gradient(ellipse at 60% 40%, rgba(52,152,219,0.10) 0%, transparent 70%), radial-gradient(ellipse at 20% 80%, rgba(52,152,219,0.08) 0%, transparent 80%);"
           >
-            <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-primary-400/10 rounded-full blur-2xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute top-1/3 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-primary-500/10 rounded-full blur-xl sm:blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-96 sm:h-96 bg-primary-600/10 rounded-full blur-xl sm:blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 w-16 h-16 sm:w-32 sm:h-32 bg-primary-400/10 rounded-full blur-md sm:blur-2xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
             <div class="relative z-10 flex flex-col items-center justify-center">
-              <transition name="fade-move" mode="out-in">
+              <template v-if="!isMobile">
+                <transition name="fade-move" mode="out-in">
+                  <div
+                    :key="techStack[currentIndex].name"
+                    class="tech-focus flex flex-col items-center justify-center"
+                  >
+                    <div class="relative w-32 h-32 md:w-40 md:h-40 mb-4 flex items-center justify-center">
+                      <img
+                        :src="techStack[currentIndex].logo"
+                        :alt="techStack[currentIndex].name"
+                        class="w-full h-full object-contain drop-shadow-xl"
+                        loading="lazy"
+                      />
+                      <div class="absolute inset-0 bg-primary-500/10 rounded-full blur-2xl"></div>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold text-dark-100 mb-1 text-center">
+                      {{ techStack[currentIndex].name }}
+                    </h4>
+                    <p class="text-base md:text-lg text-dark-200/80 text-center max-w-xs">
+                      {{ techStack[currentIndex].description }}
+                    </p>
+                  </div>
+                </transition>
+              </template>
+              <template v-else>
                 <div
                   :key="techStack[currentIndex].name"
                   class="tech-focus flex flex-col items-center justify-center"
@@ -341,29 +367,42 @@ const useCasesItems = [
                     {{ techStack[currentIndex].description }}
                   </p>
                 </div>
-              </transition>
+              </template>
             </div>
           </div>
         </div>
       </div>
       <!-- Secciones debajo del hero -->
-      <section id="problems" ref="problemsTarget" class="relative z-10 py-20 w-full min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Transition appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-            <div v-if="problemsIntersecting" class="text-center mb-16">
-              <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-                <span class="gradient-bg bg-clip-text text-transparent">
-                  {{ t('problems.title') }}
-                </span>
-              </h2>
-              <p class="text-xl text-dark-200 max-w-3xl mx-auto">
-                {{ t('problems.subtitle') }}
-              </p>
-            </div>
-          </Transition>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-              <div v-for="(item, index) in problemsItems" :key="index" v-if="problemsIntersecting" :style="{ transitionDelay: `${index * 200}ms` }" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+      <section id="problems" ref="problemsTarget" class="relative z-10 py-10 sm:py-20 w-full min-h-[60vh] sm:min-h-screen">
+        <div class="max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+              <span class="gradient-bg bg-clip-text text-transparent">
+                {{ t('problems.title') }}
+              </span>
+            </h2>
+            <p class="text-xl text-dark-200 max-w-3xl mx-auto">
+              {{ t('problems.subtitle') }}
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
+            <template v-if="!isMobile">
+              <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
+                <div v-for="(item, index) in problemsItems" :key="index" v-if="problemsIntersecting" :style="{ transitionDelay: `${index * 200}ms` }" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+                  <div class="flex items-center justify-center w-16 h-16 gradient-bg rounded-full mb-6 group-hover:animate-pulse">
+                    <component :is="problemsIcons[index]" class="h-8 w-8 text-white" />
+                  </div>
+                  <h3 class="text-2xl font-semibold mb-4 text-dark-100">
+                    {{ item.title }}
+                  </h3>
+                  <p class="text-dark-200 leading-relaxed">
+                    {{ item.description }}
+                  </p>
+                </div>
+              </TransitionGroup>
+            </template>
+            <template v-else>
+              <div v-for="(item, index) in problemsItems" :key="index" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
                 <div class="flex items-center justify-center w-16 h-16 gradient-bg rounded-full mb-6 group-hover:animate-pulse">
                   <component :is="problemsIcons[index]" class="h-8 w-8 text-white" />
                 </div>
@@ -374,27 +413,40 @@ const useCasesItems = [
                   {{ item.description }}
                 </p>
               </div>
-            </TransitionGroup>
+            </template>
           </div>
         </div>
       </section>
       <section id="features" ref="featuresTarget" class="relative z-10 py-20 w-full min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Transition appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-            <div v-if="featuresIntersecting" class="text-center mb-16">
-              <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-                <span class="gradient-bg bg-clip-text text-transparent">
-                  {{ t('features.title') }}
-                </span>
-              </h2>
-              <p class="text-xl text-dark-200 max-w-3xl mx-auto">
-                {{ t('features.subtitle') }}
-              </p>
-            </div>
-          </Transition>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-              <div v-for="(item, index) in featuresItems" :key="index" v-if="featuresIntersecting" :style="{ transitionDelay: `${index * 150}ms` }" class="glass-effect p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group hover:scale-105">
+        <div class="max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+              <span class="gradient-bg bg-clip-text text-transparent">
+                {{ t('features.title') }}
+              </span>
+            </h2>
+            <p class="text-xl text-dark-200 max-w-3xl mx-auto">
+              {{ t('features.subtitle') }}
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+            <template v-if="!isMobile">
+              <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
+                <div v-for="(item, index) in featuresItems" :key="index" v-if="featuresIntersecting" :style="{ transitionDelay: `${index * 150}ms` }" class="glass-effect p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group hover:scale-105">
+                  <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mb-4 group-hover:animate-glow">
+                    <component :is="featuresIcons[index]" class="h-6 w-6 text-white" />
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3 text-dark-100">
+                    {{ item.title }}
+                  </h3>
+                  <p class="text-dark-200 leading-relaxed">
+                    {{ item.description }}
+                  </p>
+                </div>
+              </TransitionGroup>
+            </template>
+            <template v-else>
+              <div v-for="(item, index) in featuresItems" :key="index" class="glass-effect p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group hover:scale-105">
                 <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mb-4 group-hover:animate-glow">
                   <component :is="featuresIcons[index]" class="h-6 w-6 text-white" />
                 </div>
@@ -405,27 +457,46 @@ const useCasesItems = [
                   {{ item.description }}
                 </p>
               </div>
-            </TransitionGroup>
+            </template>
           </div>
         </div>
       </section>
       <section id="use-cases" ref="useCasesTarget" class="relative z-10 py-20 w-full min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Transition appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-            <div v-if="useCasesIntersecting" class="text-center mb-16">
-              <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-                <span class="gradient-bg bg-clip-text text-transparent">
-                  {{ t('useCases.title') }}
-                </span>
-              </h2>
-              <p class="text-xl text-dark-200 max-w-3xl mx-auto">
-                {{ t('useCases.subtitle') }}
-              </p>
-            </div>
-          </Transition>
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
-              <div v-for="(item, index) in useCasesItems" :key="index" v-if="useCasesIntersecting" :style="{ transitionDelay: `${index * 200}ms` }" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+        <div class="max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+              <span class="gradient-bg bg-clip-text text-transparent">
+                {{ t('useCases.title') }}
+              </span>
+            </h2>
+            <p class="text-xl text-dark-200 max-w-3xl mx-auto">
+              {{ t('useCases.subtitle') }}
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
+            <template v-if="!isMobile">
+              <TransitionGroup appear enter-active-class="transition ease-out duration-800" enter-from-class="opacity-0 transform translate-y-8" enter-to-class="opacity-100 transform translate-y-0">
+                <div v-for="(item, index) in useCasesItems" :key="index" v-if="useCasesIntersecting" :style="{ transitionDelay: `${index * 200}ms` }" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+                  <div class="flex items-center justify-center w-16 h-16 gradient-bg rounded-full mb-6 group-hover:animate-pulse">
+                    <component :is="useCasesIcons[index]" class="h-8 w-8 text-white" />
+                  </div>
+                  <h3 class="text-2xl font-semibold mb-4 text-dark-100">
+                    {{ item.title }}
+                  </h3>
+                  <p class="text-dark-200 leading-relaxed mb-6">
+                    {{ item.description }}
+                  </p>
+                  <div class="space-y-3">
+                    <div v-for="benefit in item.benefits" :key="benefit" class="flex items-center text-primary-500">
+                      <CheckCircle class="h-5 w-5 mr-3 flex-shrink-0" />
+                      <span class="text-dark-200">{{ benefit }}</span>
+                    </div>
+                  </div>
+                </div>
+              </TransitionGroup>
+            </template>
+            <template v-else>
+              <div v-for="(item, index) in useCasesItems" :key="index" class="glass-effect p-8 rounded-xl hover:bg-white/10 transition-all duration-300 group">
                 <div class="flex items-center justify-center w-16 h-16 gradient-bg rounded-full mb-6 group-hover:animate-pulse">
                   <component :is="useCasesIcons[index]" class="h-8 w-8 text-white" />
                 </div>
@@ -442,7 +513,7 @@ const useCasesItems = [
                   </div>
                 </div>
               </div>
-            </TransitionGroup>
+            </template>
           </div>
         </div>
       </section>

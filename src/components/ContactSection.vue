@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Send, Mail, MapPin } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { useIntersectionObserver } from '../composables/useIntersectionObserver'
@@ -16,6 +16,14 @@ const form = ref({
 
 const isSubmitting = ref(false)
 const submitStatus = ref<'idle' | 'success' | 'error'>('idle')
+
+const isMobile = ref(false)
+onMounted(() => {
+  isMobile.value = window.innerWidth < 640
+  window.addEventListener('resize', () => {
+    isMobile.value = window.innerWidth < 640
+  })
+})
 
 const submitForm = async () => {
   isSubmitting.value = true
@@ -44,36 +52,76 @@ const submitForm = async () => {
 <template>
   <section id="contact" ref="target" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Transition
-        appear
-        enter-active-class="transition ease-out duration-800"
-        enter-from-class="opacity-0 transform translate-y-8"
-        enter-to-class="opacity-100 transform translate-y-0"
-      >
-        <div v-if="isIntersecting" class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-            <span class="gradient-bg bg-clip-text text-transparent">
-              {{ t('contact.title') }}
-            </span>
-          </h2>
-          <p class="text-xl text-dark-200 max-w-3xl mx-auto mb-4">
-            {{ t('contact.subtitle') }}
-          </p>
-          <p class="text-dark-200 max-w-3xl mx-auto">
-            {{ t('contact.description') }}
-          </p>
-        </div>
-      </Transition>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+          <span class="gradient-bg bg-clip-text text-transparent">
+            {{ t('contact.title') }}
+          </span>
+        </h2>
+        <p class="text-xl text-dark-200 max-w-3xl mx-auto mb-4">
+          {{ t('contact.subtitle') }}
+        </p>
+        <p class="text-dark-200 max-w-3xl mx-auto">
+          {{ t('contact.description') }}
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Contact Info -->
-        <Transition
-          appear
-          enter-active-class="transition ease-out duration-800 delay-300"
-          enter-from-class="opacity-0 transform translate-x-8"
-          enter-to-class="opacity-100 transform translate-x-0"
-        >
-          <div v-if="isIntersecting" class="space-y-8">
+        <template v-if="!isMobile">
+          <Transition
+            appear
+            enter-active-class="transition ease-out duration-800 delay-300"
+            enter-from-class="opacity-0 transform translate-x-8"
+            enter-to-class="opacity-100 transform translate-x-0"
+          >
+            <div v-if="isIntersecting" class="space-y-8">
+              <div class="space-y-6">
+                <div class="flex items-center">
+                  <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
+                    <Mail class="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-dark-100">Email</h3>
+                    <p class="text-dark-200">contacto@hotusoft.com</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
+                    <MapPin class="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-dark-100">Dirección</h3>
+                    <p class="text-dark-200">Avenida Apoquindo 6410, oficina 1004, comuna de Las Condes.</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
+                    <span class="h-6 w-6 text-white font-bold flex items-center justify-center">🏢</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-dark-100">Empresa</h3>
+                    <p class="text-dark-200">HOTU SOFTWARE SOLUTIONS SPA</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Card -->
+              <div class="glass-effect p-8 rounded-xl">
+                <h3 class="text-2xl font-semibold mb-4 text-dark-100">¿Listo para innovar?</h3>
+                <p class="text-dark-200 mb-6">
+                  Únete a la revolución blockchain y transforma tu organización con tecnología de vanguardia.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <span class="px-4 py-2 bg-primary-500/20 text-primary-400 rounded-full text-sm">Consultoría</span>
+                  <span class="px-4 py-2 bg-primary-500/20 text-primary-400 rounded-full text-sm">Implementación</span>
+                  <span class="px-4 py-2 bg-primary-500/20 text-primary-400 rounded-full text-sm">Soporte</span>
+                </div>
+              </div>
+            </div>
+          </Transition>
+        </template>
+        <template v-else>
+          <div class="space-y-8">
             <div class="space-y-6">
               <div class="flex items-center">
                 <div class="flex items-center justify-center w-12 h-12 gradient-bg rounded-lg mr-4">
@@ -117,8 +165,7 @@ const submitForm = async () => {
               </div>
             </div>
           </div>
-        </Transition>
-
+        </template>
         <!-- Contact Form -->
         <Transition
           appear

@@ -101,7 +101,7 @@ const navItems = [
           <button
             v-for="item in navItems"
             :key="item.key"
-            @click="router.push(item.route)"
+            @click="() => { router.push(item.route); uiStore.closeMenu(); }"
             class="text-dark-100 hover:text-primary-500 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             {{ t(`nav.${item.key}`) }}
