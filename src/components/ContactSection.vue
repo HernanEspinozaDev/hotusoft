@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue' // <-- 1. Importa onUnmounted
 import { Send, Mail, MapPin } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { useIntersectionObserver } from '../composables/useIntersectionObserver'
@@ -16,35 +16,68 @@ const form = ref({
 
 const isSubmitting = ref(false)
 const submitStatus = ref<'idle' | 'success' | 'error'>('idle')
+const errorMessage = ref('') // Para un mensaje de error más específico
 
 const isMobile = ref(false)
-onMounted(() => {
+
+// 1. Mejora: Lógica de resize limpia
+const handleResize = () => {
   isMobile.value = window.innerWidth < 640
-  window.addEventListener('resize', () => {
-    isMobile.value = window.innerWidth < 640
-  })
+}
+
+onMounted(() => {
+  handleResize()
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
 })
 
 const submitForm = async () => {
   isSubmitting.value = true
-  
+  submitStatus.value = 'idle'
+  errorMessage.value = ''
+
+  const requestBody = {
+    site: "hotusoft",
+    formId: "contacto_principal",
+    token: import.meta.env.VITE_HOTUSOFT_TOKEN, // Sospechoso #1
+    payload: form.value
+  };
+
+  const apiUrl = `${import.meta.env.VITE_API_ENDPOINT}/contact`; // Sospechoso #2
+
+  // --- INICIO DE LA DEPURACIÓN ---
+  console.log("🚀 Intentando enviar a:", apiUrl);
+  console.log("📦 Payload a enviar:", JSON.stringify(requestBody, null, 2));
+  // --- FIN DE LA DEPURACIÓN ---
+
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    submitStatus.value = 'success'
-    form.value = { name: '', email: '', company: '', message: '' }
-    
-    setTimeout(() => {
-      submitStatus.value = 'idle'
-    }, 3000)
-  } catch (error) {
-    submitStatus.value = 'error'
-    setTimeout(() => {
-      submitStatus.value = 'idle'
-    }, 3000)
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || `Error del servidor: ${response.status}`);
+    }
+
+    submitStatus.value = 'success';
+    form.value = { name: '', email: '', company: '', message: '' };
+    setTimeout(() => { submitStatus.value = 'idle' }, 5000);
+
+  } catch (error: any) {
+    // --- DEPURACIÓN DEL ERROR ---
+    console.error('❌ Error capturado en el bloque CATCH:', error);
+    // --- FIN DE LA DEPURACIÓN ---
+    errorMessage.value = error.message || 'Ocurrió un error inesperado.';
+    submitStatus.value = 'error';
+    setTimeout(() => { submitStatus.value = 'idle' }, 5000);
   } finally {
-    isSubmitting.value = false
+    isSubmitting.value = false;
   }
 }
 </script>
@@ -105,7 +138,6 @@ const submitForm = async () => {
                 </div>
               </div>
 
-              <!-- CTA Card -->
               <div class="glass-effect p-8 rounded-xl">
                 <h3 class="text-2xl font-semibold mb-4 text-dark-100">¿Listo para innovar?</h3>
                 <p class="text-dark-200 mb-6">
@@ -152,7 +184,6 @@ const submitForm = async () => {
               </div>
             </div>
 
-            <!-- CTA Card -->
             <div class="glass-effect p-8 rounded-xl">
               <h3 class="text-2xl font-semibold mb-4 text-dark-100">¿Listo para innovar?</h3>
               <p class="text-dark-200 mb-6">
@@ -166,7 +197,6 @@ const submitForm = async () => {
             </div>
           </div>
         </template>
-        <!-- Contact Form -->
         <template v-if="!isMobile">
           <Transition
             appear
@@ -243,7 +273,6 @@ const submitForm = async () => {
                   <span v-else>Enviando...</span>
                 </button>
 
-                <!-- Status Messages -->
                 <Transition
                   enter-active-class="transition ease-out duration-300"
                   enter-from-class="opacity-0 transform translate-y-2"
@@ -332,7 +361,6 @@ const submitForm = async () => {
               <span v-else>Enviando...</span>
             </button>
 
-            <!-- Status Messages -->
             <Transition
               enter-active-class="transition ease-out duration-300"
               enter-from-class="opacity-0 transform translate-y-2"
