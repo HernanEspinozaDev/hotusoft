@@ -222,6 +222,14 @@
 
 <script>
   const form = document.getElementById("contact-form");
+  const submitButton = form?.querySelector(
+    'button[type="submit"]',
+  ) as HTMLButtonElement;
+
+  // API Configuration
+  const API_URL =
+    "https://u8d7r49o45.execute-api.us-east-1.amazonaws.com/prod/contact";
+  const SITE_TOKEN = "b0b298aca12b3e8ffd64f64f9f3edbe7";
 
   // Auto-select service based on URL parameter
   const urlParams = new URLSearchParams(window.location.search);
@@ -232,15 +240,102 @@
     serviceSelect.value = serviceParam;
   }
 
+  // Create notification element
+  function showNotification(message: string, type: "success" | "error") {
+    // Remove existing notifications
+    const existing = document.getElementById("form-notification");
+    if (existing) existing.remove();
+
+    const notification = document.createElement("div");
+    notification.id = "form-notification";
+    notification.className = `fixed top-4 right-4 z-50 p-4 rounded-xl shadow-lg transition-all transform translate-x-0 max-w-md ${
+      type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"
+    }`;
+    notification.innerHTML = `
+      <div class="flex items-center gap-3">
+        <span class="text-lg">${type === "success" ? "✓" : "✕"}</span>
+        <p class="font-medium">${message}</p>
+      </div>
+    `;
+    document.body.appendChild(notification);
+
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+      notification.style.opacity = "0";
+      notification.style.transform = "translateX(100%)";
+      setTimeout(() => notification.remove(), 300);
+    }, 5000);
+  }
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form as HTMLFormElement);
-    const data = Object.fromEntries(formData);
 
-    // Here you would integrate with AWS SES or another email service
-    // For now, we'll show an alert
-    alert("¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.");
-    (form as HTMLFormElement).reset();
+    // Prepare payload for Rhotumail
+    const payload = {
+      domain: "hotusoft.com",
+      formId: "contacto_principal",
+      token: SITE_TOKEN,
+      payload: {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        company: (formData.get("company") as string) || "",
+        service: (formData.get("service") as string) || "",
+        message: formData.get("message") as string,
+      },
+    };
+
+    // Disable button and show loading state
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="inline-flex items-center gap-2">
+          <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Enviando...
+        </span>
+      `;
+    }
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        showNotification(
+          "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.",
+          "success",
+        );
+        (form as HTMLFormElement).reset();
+      } else {
+        showNotification(
+          result.message ||
+            "No se pudo enviar el mensaje. Por favor intenta nuevamente.",
+          "error",
+        );
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showNotification(
+        "Error de conexión. Por favor verifica tu conexión e intenta nuevamente.",
+        "error",
+      );
+    } finally {
+      // Restore button state
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Enviar Mensaje";
+      }
+    }
   });
 </script>
