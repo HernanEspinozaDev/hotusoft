@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const features = [
+    {
+        title: "Landing Pages de Alta Conversión",
+        description:
+            "Páginas diseñadas científicamente para convertir visitantes en clientes. Carga instantánea y llamados a la acción claros.",
+        icon: "🚀",
+    },
+    {
+        title: "Sitios Corporativos",
+        description:
+            "Presencia digital profesional que refleja la seriedad de tu empresa. Diseño premium y estructura optimizada para SEO.",
+        icon: "🏢",
+    },
+    {
+        title: "One-Page Apps",
+        description:
+            "Experiencias fluidas y modernas donde todo ocurre en una sola pantalla, sin recargas innecesarias.",
+        icon: "⚡",
+    },
+];
+
+const benefits = [
+    "Carga en milisegundos (Core Web Vitals optimizados)",
+    "Sin plugins costosos ni mantenimiento constante",
+    "Seguridad total (Hack-proof static sites)",
+    "SEO técnico implementado desde el código",
+];
+---
+
+<Layout
+    title="Desarrollo Web de Alto Rendimiento | HotuSoft"
+    description="Sitios web ultra-rápidos, sin plugins y optimizados para ventas. Desarrollo web profesional en Chile."
+>
+    <div class="pt-24 lg:pt-32 pb-12 bg-slate-900 text-white">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center">
+                <span
+                    class="inline-block px-4 py-1.5 bg-blue-500/10 text-blue-400 rounded-full text-sm font-medium mb-6 border border-blue-500/20"
+                >
+                    Desarrollo Web
+                </span>
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    Desarrollo Web de <span class="text-blue-400"
+                        >Alto Rendimiento</span
+                    >
+                </h1>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                    Tus clientes no esperan. Creamos sitios estáticos y
+                    dinámicos ultra-rápidos que cargan al instante. Olvídate de
+                    WordPress lento y pesado; pásate a la web moderna.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-3 gap-8 -mt-24 relative z-10 mb-20">
+                {
+                    features.map((feature) => (
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+                            <div class="text-4xl mb-4">{feature.icon}</div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">
+                                {feature.title}
+                            </h3>
+                            <p class="text-slate-600">{feature.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">
+                        ¿Por qué elegir nuestro desarrollo web?
+                    </h2>
+                    <p class="text-slate-600 mb-8 text-lg">
+                        La mayoría de las agencias te entregan un sitio lento
+                        lleno de plugins que requieren actualizaciones
+                        mensuales. Nosotros codificamos soluciones a medida,
+                        limpias y eficientes.
+                    </p>
+                    <ul class="space-y-4">
+                        {
+                            benefits.map((benefit) => (
+                                <li class="flex items-center gap-3 text-slate-700">
+                                    <svg
+                                        class="w-5 h-5 text-green-500 flex-shrink-0"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M5 13l4 4L19 7"
+                                        />
+                                    </svg>
+                                    {benefit}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div
+                    class="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white overflow-hidden shadow-2xl"
+                >
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"
+                    >
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4">
+                            Stack Tecnológico
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/10 p-4 rounded-lg">
+                                <span class="block font-bold"
+                                    >Astro / Next.js</span
+                                >
+                                <span class="text-sm opacity-80"
+                                    >Frontend ultrarápido</span
+                                >
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-lg">
+                                <span class="block font-bold">Tailwind CSS</span
+                                >
+                                <span class="text-sm opacity-80"
+                                    >Diseño a medida</span
+                                >
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-lg">
+                                <span class="block font-bold">Vercel / AWS</span
+                                >
+                                <span class="text-sm opacity-80"
+                                    >Hosting global</span
+                                >
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-lg">
+                                <span class="block font-bold">TypeScript</span>
+                                <span class="text-sm opacity-80"
+                                    >Código robusto</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-20 bg-slate-50 text-center">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">
+                ¿Listo para escalar tu negocio?
+            </h2>
+            <a
+                href="/?service=web#contacto"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+                Solicitar Cotización Web
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+                >
+            </a>
+        </div>
+    </div>
+</Layout>

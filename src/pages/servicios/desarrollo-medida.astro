@@ -1,0 +1,188 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const features = [
+    {
+        title: "Apps iOS/Android",
+        description:
+            "Aplicaciones móviles nativas o híbridas que ponen tu negocio en el bolsillo de tus clientes.",
+        icon: "📱",
+    },
+    {
+        title: "Sistemas SaaS",
+        description:
+            "Software as a Service. Plataformas complejas multi-usuario con suscripciones y roles.",
+        icon: "💻",
+    },
+    {
+        title: "APIs Custom",
+        description:
+            "Desarrollo de interfaces de programación para conectar tus datos con el mundo de forma segura.",
+        icon: "🔌",
+    },
+];
+
+const benefits = [
+    "Código propiedad tuya (IP transferible)",
+    "Diseño UI/UX centrado en el usuario",
+    "Arquitectura preparada para escalar a millones",
+    "Mantenimiento y soporte post-lanzamiento",
+];
+---
+
+<Layout
+    title="Desarrollo a Medida y Apps | HotuSoft"
+    description="Desarrollo de Software a medida, Aplicaciones Móviles y Sistemas SaaS. Soluciones personalizadas para problemas únicos."
+>
+    <div class="pt-24 lg:pt-32 pb-12 bg-slate-900 text-white">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center">
+                <span
+                    class="inline-block px-4 py-1.5 bg-purple-500/10 text-purple-400 rounded-full text-sm font-medium mb-6 border border-purple-500/20"
+                >
+                    Software a Medida
+                </span>
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    Desarrollo <span class="text-purple-400">a Medida</span>
+                </h1>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                    Cuando las soluciones del mercado no son suficientes.
+                    Diseñamos y construimos sistemas SaaS personalizados y
+                    aplicaciones móviles que resuelven tus problemas
+                    específicos.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-3 gap-8 -mt-24 relative z-10 mb-20">
+                {
+                    features.map((feature) => (
+                        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+                            <div class="text-4xl mb-4">{feature.icon}</div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">
+                                {feature.title}
+                            </h3>
+                            <p class="text-slate-600">{feature.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-8">
+                        <div
+                            class="bg-slate-100 p-4 rounded-2xl shadow-lg border border-slate-200"
+                        >
+                            <div class="w-8 h-8 bg-blue-500 rounded-full mb-3">
+                            </div>
+                            <div class="h-2 w-16 bg-slate-300 rounded mb-2">
+                            </div>
+                            <div class="h-16 w-full bg-slate-200 rounded"></div>
+                        </div>
+                        <div
+                            class="bg-slate-900 p-4 rounded-2xl shadow-xl text-white transform -translate-x-4"
+                        >
+                            <div class="flex justify-between items-center mb-3">
+                                <div class="w-8 h-8 bg-purple-500 rounded-full">
+                                </div>
+                                <div
+                                    class="text-xs bg-white/20 px-2 py-1 rounded"
+                                >
+                                    Admin
+                                </div>
+                            </div>
+                            <div class="h-2 w-20 bg-slate-600 rounded mb-2">
+                            </div>
+                            <div class="h-2 w-12 bg-slate-700 rounded"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div
+                            class="bg-white p-4 rounded-2xl shadow-lg border border-slate-100 transform translate-y-4"
+                        >
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-2 h-2 bg-red-400 rounded-full">
+                                </div>
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full">
+                                </div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="h-2 w-full bg-slate-100 rounded">
+                                </div>
+                                <div class="h-2 w-3/4 bg-slate-100 rounded">
+                                </div>
+                                <div class="h-2 w-1/2 bg-slate-100 rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">
+                        Software que se adapta a ti
+                    </h2>
+                    <p class="text-slate-600 mb-8 text-lg">
+                        No intentes encajar tu negocio en una plantilla
+                        limitada. Desarrollamos herramientas que potencian tus
+                        flujos de trabajo únicos, mejorando la productividad y
+                        la experiencia de tus usuarios.
+                    </p>
+                    <ul class="space-y-4">
+                        {
+                            benefits.map((benefit) => (
+                                <li class="flex items-center gap-3 text-slate-700">
+                                    <svg
+                                        class="w-5 h-5 text-purple-500 flex-shrink-0"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                                        />
+                                    </svg>
+                                    {benefit}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-20 bg-slate-50 text-center">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">
+                ¿Tienes un proyecto único?
+            </h2>
+            <a
+                href="/?service=custom#contacto"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+                Cotizar Desarrollo a Medida
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+                >
+            </a>
+        </div>
+    </div>
+</Layout>

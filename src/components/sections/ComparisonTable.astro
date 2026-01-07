@@ -1,0 +1,131 @@
+---
+// Comparison Table - HotuSoft vs Traditional
+const comparisons = [
+  {
+    feature: 'Tecnología',
+    traditional: 'WordPress/CMS pesados',
+    hotusoft: 'Ingeniería a medida (Rust/AWS)',
+    icon: '⚙️'
+  },
+  {
+    feature: 'Velocidad',
+    traditional: 'Lenta, depende de plugins',
+    hotusoft: 'Instantánea (Milisegundos)',
+    icon: '⚡'
+  },
+  {
+    feature: 'Costos',
+    traditional: 'Fijos (se use o no)',
+    hotusoft: 'Eficientes (Escala con el uso)',
+    icon: '💰'
+  },
+  {
+    feature: 'Seguridad',
+    traditional: 'Vulnerable a hackeos masivos',
+    hotusoft: 'Blindada (Sin BD expuestas)',
+    icon: '🛡️'
+  },
+  {
+    feature: 'Mantenimiento',
+    traditional: 'Alto y frágil',
+    hotusoft: 'Estable y robusto',
+    icon: '🔧'
+  },
+];
+---
+
+<section id="comparativa" class="section-padding bg-slate-50">
+  <div class="container-custom">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+      <span class="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+        ¿Por qué elegirnos?
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        HotuSoft vs. Web Tradicional
+      </h2>
+      <p class="text-lg text-slate-600">
+        Descubre por qué nuestra arquitectura Serverless supera a las soluciones tradicionales en todos los aspectos críticos.
+      </p>
+    </div>
+
+    <!-- Mobile: Cards Layout -->
+    <div class="md:hidden space-y-4">
+      {comparisons.map((row) => (
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+          <!-- Feature Header -->
+          <div class="bg-slate-900 text-white px-4 py-3 flex items-center gap-3">
+            <span class="text-2xl">{row.icon}</span>
+            <span class="font-semibold">{row.feature}</span>
+          </div>
+          
+          <!-- Comparison Content -->
+          <div class="divide-y divide-slate-100">
+            <!-- Traditional -->
+            <div class="px-4 py-3 bg-red-50/50">
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-1">
+                <span class="text-red-500">✗</span>
+                <span>Web Tradicional</span>
+              </div>
+              <p class="text-slate-600 text-sm">{row.traditional}</p>
+            </div>
+            
+            <!-- HotuSoft -->
+            <div class="px-4 py-3 bg-blue-50">
+              <div class="flex items-center gap-2 text-xs text-blue-600 mb-1">
+                <span class="text-green-500">✓</span>
+                <span class="font-medium">HotuSoft</span>
+              </div>
+              <p class="text-blue-700 font-medium text-sm">{row.hotusoft}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Desktop: Table Layout -->
+    <div class="hidden md:block bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+      <!-- Table Header -->
+      <div class="grid grid-cols-3 bg-slate-900 text-white">
+        <div class="p-4 lg:p-6 font-semibold">
+          Característica
+        </div>
+        <div class="p-4 lg:p-6 font-semibold bg-slate-800 text-center">
+          <span class="text-red-400">✗</span> Web Tradicional
+        </div>
+        <div class="p-4 lg:p-6 font-semibold bg-blue-600 text-center">
+          <span class="text-green-300">✓</span> HotuSoft
+        </div>
+      </div>
+
+      <!-- Table Body -->
+      {comparisons.map((row, index) => (
+        <div class={`grid grid-cols-3 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'} border-b border-slate-100 last:border-b-0`}>
+          <div class="p-4 lg:p-6 flex items-center gap-3">
+            <span class="text-2xl">{row.icon}</span>
+            <span class="font-semibold text-slate-900">{row.feature}</span>
+          </div>
+          <div class="p-4 lg:p-6 text-center text-slate-500 bg-red-50/50 flex items-center justify-center">
+            <span class="text-sm lg:text-base">{row.traditional}</span>
+          </div>
+          <div class="p-4 lg:p-6 text-center text-blue-700 bg-blue-50 flex items-center justify-center font-medium">
+            <span class="text-sm lg:text-base">{row.hotusoft}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <a 
+        href="#contacto" 
+        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+      >
+        Quiero migrar a tecnología moderna
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
