@@ -1,20 +1,22 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const navItems = [
-  { name: "Inicio", href: "/#hero", type: 'link' },
-  { name: "Nosotros", href: "/#nosotros", type: 'link' },
+  { name: "Inicio", href: `${base}#hero`, type: 'link' },
+  { name: "Nosotros", href: `${base}#nosotros`, type: 'link' },
   { 
     name: "Servicios", 
-    href: "/#servicios",
+    href: `${base}#servicios`,
     type: 'dropdown',
     items: [
-      { name: 'Desarrollo Web', href: '/servicios/desarrollo-web' },
-      { name: 'Automatización (RPA)', href: '/servicios/automatizacion-rpa' },
-      { name: 'Cloud Solutions', href: '/servicios/soluciones-cloud' },
-      { name: 'Desarrollo a Medida', href: '/servicios/desarrollo-medida' },
+      { name: 'Desarrollo Web', href: `${base}servicios/desarrollo-web` },
+      { name: 'Automatización (RPA)', href: `${base}servicios/automatizacion-rpa` },
+      { name: 'Cloud Solutions', href: `${base}servicios/soluciones-cloud` },
+      { name: 'Desarrollo a Medida', href: `${base}servicios/desarrollo-medida` },
     ]
   },
-  { name: "Precios", href: "/#precios", type: 'link' },
-  { name: "Contacto", href: "/#contacto", type: 'link' },
+  { name: "Precios", href: `${base}#precios`, type: 'link' },
+  { name: "Contacto", href: `${base}#contacto`, type: 'link' },
 ];
 ---
 
@@ -25,9 +27,9 @@ const navItems = [
   <nav class="container-custom">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center group">
+      <a href={base} class="flex items-center group">
         <img
-          src="/images/logo.webp"
+          src={`${base}images/logo.webp`}
           alt="HotuSoft"
           class="h-12 w-auto object-contain"
         />
@@ -79,7 +81,7 @@ const navItems = [
       <!-- CTA Button -->
       <div class="hidden lg:flex items-center gap-4">
         <a
-          href="/#contacto"
+          href={`${base}#contacto`}
           class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
         >
           Agendar Consultoría
@@ -146,7 +148,7 @@ const navItems = [
         }
         <li class="mt-4 px-4 pb-8">
           <a
-            href="#contacto"
+            href={`${base}#contacto`}
             class="block text-center py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all"
           >
             Agendar Consultoría

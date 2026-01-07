@@ -4,6 +4,8 @@ interface Props {
   description?: string;
 }
 
+const base = import.meta.env.BASE_URL;
+
 const {
   title,
   description = "HotuSoft - Desarrollo de Software, Automatización de Procesos y Soluciones Cloud. Tecnología de nivel empresarial, accesible para tu negocio.",
@@ -43,7 +45,7 @@ import ScrollSpy from "../components/ui/ScrollSpy.astro";
     <meta name="twitter:description" content={description} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="icon" type="image/webp" href={`${base}favicon.webp`} />
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +59,11 @@ import ScrollSpy from "../components/ui/ScrollSpy.astro";
   </head>
   <body class="font-['Inter',sans-serif]">
     <Navbar />
-    {Astro.url.pathname === "/" && <ScrollSpy />}
+    {
+      (Astro.url.pathname === "/" ||
+        Astro.url.pathname === base ||
+        Astro.url.pathname === `${base}/`) && <ScrollSpy />
+    }
     <main>
       <slot />
     </main>

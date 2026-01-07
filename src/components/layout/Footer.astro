@@ -1,28 +1,29 @@
 ---
+const base = import.meta.env.BASE_URL;
 const currentYear = 2024;
 
 const services = [
   {
     name: "Desarrollo Web de Alto Rendimiento",
-    href: "/servicios/desarrollo-web",
+    href: `${base}servicios/desarrollo-web`,
   },
   {
     name: "Automatización y Eficiencia (RPA)",
-    href: "/servicios/automatizacion-rpa",
+    href: `${base}servicios/automatizacion-rpa`,
   },
   {
     name: "Soluciones Empresariales y Cloud",
-    href: "/servicios/soluciones-cloud",
+    href: `${base}servicios/soluciones-cloud`,
   },
-  { name: "Desarrollo a Medida", href: "/servicios/desarrollo-medida" },
+  { name: "Desarrollo a Medida", href: `${base}servicios/desarrollo-medida` },
 ];
 
 const links = [
-  { name: "Inicio", href: "/#hero" },
-  { name: "Nosotros", href: "/#nosotros" },
-  { name: "Servicios", href: "/#servicios" },
-  { name: "Precios", href: "/#precios" },
-  { name: "Contacto", href: "/#contacto" },
+  { name: "Inicio", href: `${base}#hero` },
+  { name: "Nosotros", href: `${base}#nosotros` },
+  { name: "Servicios", href: `${base}#servicios` },
+  { name: "Precios", href: `${base}#precios` },
+  { name: "Contacto", href: `${base}#contacto` },
 ];
 ---
 
@@ -34,7 +35,7 @@ const links = [
       <div class="lg:col-span-2">
         <div class="mb-6">
           <img
-            src="/images/logo.webp"
+            src={`${base}images/logo.webp`}
             alt="HotuSoft"
             class="h-14 w-auto object-contain"
           />

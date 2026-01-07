@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
 
 const features = [
     {
@@ -180,7 +181,7 @@ const benefits = [
                 ¿Listo para migrar a la nube?
             </h2>
             <a
-                href="/?service=cloud#contacto"
+                href={`${base}?service=cloud#contacto`}
                 class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
                 Solicitar Cotización Cloud
