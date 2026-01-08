@@ -1,52 +1,78 @@
 ---
 // Hero Section - Main landing area with CTA
+const base = import.meta.env.BASE_URL;
 ---
 
-<section id="hero" class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+<section
+  id="hero"
+  class="relative min-h-[90vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden"
+>
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-30">
-    <div class="absolute top-20 right-20 w-72 h-72 bg-blue-200 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 left-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+    <div
+      class="absolute top-20 right-20 w-72 h-72 bg-blue-200 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 left-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl"
+    >
+    </div>
   </div>
-
-
 
   <div class="container-custom relative z-10">
     <div class="max-w-4xl">
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8"
+      >
         <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
         Tecnologia Empresarial o Accesible para Pymes
       </div>
 
       <!-- Main Title -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-tight mb-6">
-        Transformacion Digital de 
-        <span class="text-gradient bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+      <h1
+        class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 leading-tight mb-6"
+      >
+        Transformacion Digital de
+        <span
+          class="text-gradient bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"
+        >
           Alto Rendimiento
-        </span> 
+        </span>
         para Empresas Emergentes
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-lg sm:text-xl lg:text-2xl text-slate-600 mb-10 max-w-3xl leading-relaxed">
-        Desarrollo de Software, Automatizacion de Procesos y Soluciones Cloud. 
-        <strong class="text-slate-800">Tecnologia de nivel empresarial</strong>, accesible para tu negocio.
+      <p
+        class="text-lg sm:text-xl lg:text-2xl text-slate-600 mb-10 max-w-3xl leading-relaxed"
+      >
+        Desarrollo de Software, Automatizacion de Procesos y Soluciones Cloud.
+        <strong class="text-slate-800">Tecnologia de nivel empresarial</strong>,
+        accesible para tu negocio.
       </p>
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row gap-4">
-        <a 
-          href="#contacto" 
+        <a
+          href={base + "/#contacto"}
           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5"
         >
           Agendar Consultoria Gratuita
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
         </a>
-        <a 
-          href="#servicios" 
+        <a
+          href={base + "/#servicios"}
           class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all"
         >
           Ver Servicios
@@ -54,22 +80,45 @@
       </div>
 
       <!-- Trust Badges -->
-      <div class="mt-16 flex flex-wrap items-center gap-8 text-sm text-slate-500">
+      <div
+        class="mt-16 flex flex-wrap items-center gap-8 text-sm text-slate-500"
+      >
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <svg
+            class="w-5 h-5 text-green-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
           </svg>
           <span>100% Chileno ??</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <svg
+            class="w-5 h-5 text-green-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
           </svg>
           <span>AWS Serverless</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <svg
+            class="w-5 h-5 text-green-500"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
           </svg>
           <span>Ingenieria Rust</span>
         </div>
@@ -79,10 +128,23 @@
 
   <!-- Scroll Down Indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <a href="#nosotros" class="flex flex-col items-center text-slate-400 hover:text-blue-600 transition-colors" aria-label="Scroll down">
+    <a
+      href={base + "/#nosotros"}
+      class="flex flex-col items-center text-slate-400 hover:text-blue-600 transition-colors"
+      aria-label="Scroll down"
+    >
       <span class="text-xs mb-2">Descubre mas</span>
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </a>
   </div>
