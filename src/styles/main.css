@@ -1,14 +1,27 @@
 @import "tailwindcss";
 
+/* Forced update v2 */
+@layer utilities {
+  .hash-buster {
+    content: "v2";
+  }
+}
+
 /* HotuSoft Corporate Design System */
 @layer base {
   :root {
-    --hotu-primary: 10 37 64;      /* #0a2540 Deep Navy */
-    --hotu-secondary: 30 58 95;    /* #1e3a5f Corporate Blue */
-    --hotu-accent: 37 99 235;      /* #2563eb Bright Blue */
-    --hotu-light: 248 250 252;     /* #f8fafc Off-white */
-    --hotu-gray: 100 116 139;      /* #64748b Text gray */
-    --hotu-dark: 15 23 42;         /* #0f172a Dark text */
+    --hotu-primary: 10 37 64;
+    /* #0a2540 Deep Navy */
+    --hotu-secondary: 30 58 95;
+    /* #1e3a5f Corporate Blue */
+    --hotu-accent: 37 99 235;
+    /* #2563eb Bright Blue */
+    --hotu-light: 248 250 252;
+    /* #f8fafc Off-white */
+    --hotu-gray: 100 116 139;
+    /* #64748b Text gray */
+    --hotu-dark: 15 23 42;
+    /* #0f172a Dark text */
   }
 
   html {
@@ -19,7 +32,12 @@
     @apply font-sans antialiased text-slate-700 bg-white;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold text-slate-900;
   }
 }
@@ -54,6 +72,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -64,6 +83,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
