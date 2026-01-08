@@ -1,3 +1,38 @@
+# Robots.txt - HotuSoft
+# https://hotusoft.com
+
+# Permitir todos los bots principales
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_astro/
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Control de IA - No entrenar con contenido
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Sitemap
 Sitemap: https://hotusoft.com/sitemap-index.xml
