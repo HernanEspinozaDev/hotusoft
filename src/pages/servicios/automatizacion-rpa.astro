@@ -7,19 +7,19 @@ const features = [
         title: "Bots en Python",
         description:
             "Robots de software que trabajan 24/7 sin descanso, realizando tareas repetitivas con cero errores.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
     },
     {
         title: "Integraciones API",
         description:
             "Conectamos tus sistemas (CRM, ERP, Excel) para que hablen entre si y los datos fluyan automaticamente.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
     },
     {
         title: "Scripts Automatizados",
         description:
             "Pequenos programas potentes para procesamiento de datos, generacion de reportes y scraping web.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>',
     },
 ];
 
@@ -63,7 +63,10 @@ const benefits = [
                 {
                     features.map((feature) => (
                         <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-                            <div class="text-4xl mb-4">{feature.icon}</div>
+                            <div
+                                class="text-4xl mb-4"
+                                set:html={feature.icon}
+                            />
                             <h3 class="text-xl font-bold text-slate-900 mb-2">
                                 {feature.title}
                             </h3>

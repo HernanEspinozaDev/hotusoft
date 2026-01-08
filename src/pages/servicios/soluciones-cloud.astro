@@ -7,19 +7,19 @@ const features = [
         title: "AWS Migration",
         description:
             "Llevamos tu infraestructura a la nube de Amazon Web Services. Escalabilidad infinita y pago por uso real.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>',
     },
     {
         title: "Email Corporativo",
         description:
             "Configuracion profesional de Google Workspace o Microsoft 365. Seguridad, almacenamiento y colaboracion.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>',
     },
     {
         title: "Gestion RRHH",
         description:
             "Implementacion de herramientas para gestion de trabajadores y control de asistencia digital.",
-        icon: "?",
+        icon: '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>',
     },
 ];
 
@@ -63,7 +63,10 @@ const benefits = [
                 {
                     features.map((feature) => (
                         <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-                            <div class="text-4xl mb-4">{feature.icon}</div>
+                            <div
+                                class="text-4xl mb-4"
+                                set:html={feature.icon}
+                            />
                             <h3 class="text-xl font-bold text-slate-900 mb-2">
                                 {feature.title}
                             </h3>
