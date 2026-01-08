@@ -1,0 +1,189 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const navItems = [
+  { name: "Inicio", href: base + "/#hero", type: "link" },
+  { name: "Nosotros", href: base + "/#nosotros", type: "link" },
+  { 
+    name: "Servicios", 
+    href: base + "/#servicios",
+    type: "dropdown",
+    items: [
+      { name: "Desarrollo Web", href: base + "/servicios/desarrollo-web" },
+      { name: "Automatizacion (RPA)", href: base + "/servicios/automatizacion-rpa" },
+      { name: "Cloud Solutions", href: base + "/servicios/soluciones-cloud" },
+      { name: "Desarrollo a Medida", href: base + "/servicios/desarrollo-medida" },
+    ]
+  },
+  { name: "Precios", href: base + "/#precios", type: "link" },
+  { name: "Contacto", href: base + "/#contacto", type: "link" },
+];
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100"
+>
+  <!-- Main Navigation -->
+  <nav class="container-custom">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href={base} class="flex items-center group">
+        <img
+          src={base + "/images/logo.webp"}
+          alt="HotuSoft"
+          class="h-12 w-auto object-contain"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center gap-8">
+        {
+          navItems.map((item) => (
+            <li>
+              {item.type === 'dropdown' ? (
+                <div class="relative group">
+                  <a 
+                    href={item.href}
+                    class="flex items-center gap-1 text-slate-600 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                  >
+                    {item.name}
+                    <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </a>
+                  <!-- Dropdown Menu -->
+                  <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[240px]">
+                    <div class="bg-white rounded-xl shadow-xl border border-slate-100 p-2 overflow-hidden">
+                      {item.items?.map(subItem => (
+                        <a 
+                          href={subItem.href}
+                          class="block px-4 py-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors whitespace-nowrap"
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  href={item.href}
+                  class="text-slate-600 hover:text-blue-600 font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all"
+                >
+                  {item.name}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a
+          href={base + "/#contacto"}
+          class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+        >
+          Agendar Consultoria
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
+        aria-label="Abrir menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            id="menu-icon"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden pb-6 max-h-[80vh] overflow-y-auto">
+      <ul class="flex flex-col gap-2">
+        {
+          navItems.map((item) => (
+            <li>
+              {item.type === 'dropdown' ? (
+                <div class="flex flex-col">
+                  <a 
+                    href={item.href}
+                    class="block py-3 px-4 text-slate-800 font-semibold bg-slate-50/50 rounded-lg hover:text-blue-600 transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                  <div class="pl-4 border-l-2 border-slate-100 ml-4 space-y-1 mt-1">
+                    {item.items?.map(subItem => (
+                      <a 
+                        href={subItem.href}
+                        class="block py-2 px-4 text-slate-500 hover:text-blue-600 hover:bg-blue-50/50 rounded-lg text-sm transition-all"
+                      >
+                        {subItem.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  href={item.href}
+                  class="block py-3 px-4 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all"
+                >
+                  {item.name}
+                </a>
+              )}
+            </li>
+          ))
+        }
+        <li class="mt-4 px-4 pb-8">
+          <a
+            href={base + "/#contacto"}
+            class="block text-center py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all"
+          >
+            Agendar Consultoria
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-[88px] lg:h-[104px]"></div>
+
+<script>
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+
+  mobileMenuBtn?.addEventListener("click", () => {
+    const isOpen = mobileMenu?.classList.toggle("hidden");
+    if (menuIcon) {
+      menuIcon.setAttribute(
+        "d",
+        isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12",
+      );
+    }
+  });
+
+  // Close menu when clicking on links
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      if (menuIcon) {
+        menuIcon.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+      }
+    });
+  });
+</script>
