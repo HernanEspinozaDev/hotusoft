@@ -10,6 +10,10 @@ export default defineConfig({
   site: 'https://hotusoft.com',
   base: '/',
 
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   vite: {
     plugins: [/** @type {any} */ (tailwindcss())]
   },
