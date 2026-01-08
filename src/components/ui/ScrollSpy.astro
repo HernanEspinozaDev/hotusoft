@@ -11,10 +11,10 @@ const sections = [
 ---
 
 <!-- Scroll Spy Sidebar (Desktop only) -->
-<nav id="scroll-spy-nav" class="hidden lg:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 flex-col" aria-label="Navegación de secciones">
+<nav id="scroll-spy-nav" class="hidden lg:flex fixed left-0 top-1/2 -translate-y-1/2 z-40 flex-col" aria-label="Navegacion de secciones">
   {sections.map((section, index) => (
     <a 
-      href={`#${section.id}`}
+      href={"#" + section.id}
       data-section={section.id}
       class="scroll-spy-item group flex items-center gap-3 py-2 pl-4 pr-6 transition-all duration-300"
     >

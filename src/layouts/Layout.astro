@@ -4,17 +4,17 @@ interface Props {
   description?: string;
 }
 
-const base = import.meta.env.BASE_URL;
-
-const {
-  title,
-  description = "HotuSoft - Desarrollo de Software, Automatización de Procesos y Soluciones Cloud. Tecnología de nivel empresarial, accesible para tu negocio.",
-} = Astro.props;
-
 import "../styles/global.css";
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
 import ScrollSpy from "../components/ui/ScrollSpy.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const {
+  title,
+  description = "HotuSoft - Desarrollo de Software, Automatizacion de Procesos y Soluciones Cloud.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +29,7 @@ import ScrollSpy from "../components/ui/ScrollSpy.astro";
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="desarrollo software, automatización procesos, soluciones cloud, rust, aws, serverless, chile, las condes"
+      content="desarrollo software, automatizacion procesos, soluciones cloud, rust, aws, serverless, chile, las condes"
     />
 
     <!-- Open Graph -->
@@ -45,7 +45,7 @@ import ScrollSpy from "../components/ui/ScrollSpy.astro";
     <meta name="twitter:description" content={description} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/webp" href={`${base}favicon.webp`} />
+    <link rel="icon" type="image/webp" href={base + "favicon.webp"} />
 
     <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,12 +57,12 @@ import ScrollSpy from "../components/ui/ScrollSpy.astro";
 
     <title>{title}</title>
   </head>
-  <body class="font-['Inter',sans-serif]">
+  <body class="font-sans">
     <Navbar />
     {
       (Astro.url.pathname === "/" ||
-        Astro.url.pathname === base ||
-        Astro.url.pathname === `${base}/`) && <ScrollSpy />
+        Astro.url.pathname.endsWith("/hotusoft") ||
+        Astro.url.pathname.endsWith("/hotusoft/")) && <ScrollSpy />
     }
     <main>
       <slot />
