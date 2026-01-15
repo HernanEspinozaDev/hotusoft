@@ -214,4 +214,12 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .section-padding {
+    @apply pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 scroll-mt-16 lg:scroll-mt-20;
+  }
+
+  .scroll-section {
+    @apply min-h-screen pt-16 lg:pt-20 scroll-mt-16 lg:scroll-mt-20;
+  }
 }

@@ -4,7 +4,9 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
 <HonRongoLayout title="Rongo - Accesibilidad Telefónica">
   <!-- Hero Section -->
-  <section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-32 px-4 gradient-hero relative overflow-hidden">
+  <section
+    class="scroll-section pb-20 sm:pb-24 md:pb-32 px-4 gradient-hero relative overflow-hidden flex items-center justify-center"
+  >
     <div class="absolute inset-0 opacity-10">
       <svg
         class="w-full h-full"
@@ -31,8 +33,10 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
       </svg>
     </div>
 
-    <div class="max-w-6xl mx-auto relative z-10 text-center">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+      >
         Escuchar para <span class="block">Conectar</span>
       </h1>
       <p
@@ -44,20 +48,32 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
       </p>
 
       <!-- Stats -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16 lg:mt-20 max-w-3xl mx-auto px-0">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16 lg:mt-20 max-w-3xl mx-auto px-0"
+      >
         <div class="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6 text-white">
-          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">700K+</div>
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">
+            700K+
+          </div>
           <div class="text-xs sm:text-sm opacity-90">
             Personas con discapacidad auditiva en Chile
           </div>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-lg p-6 text-white">
-          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">1.5B</div>
-          <div class="text-xs sm:text-sm opacity-90">Usuarios potenciales globales</div>
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">
+            1.5B
+          </div>
+          <div class="text-xs sm:text-sm opacity-90">
+            Usuarios potenciales globales
+          </div>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-lg p-6 text-white">
-          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">&lt;200ms</div>
-          <div class="text-xs sm:text-sm opacity-90">Latencia crítica conseguida</div>
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">
+            &lt;200ms
+          </div>
+          <div class="text-xs sm:text-sm opacity-90">
+            Latencia crítica conseguida
+          </div>
         </div>
       </div>
     </div>
@@ -66,8 +82,11 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   <!-- ============================================== -->
   <!-- NEW SECTION: CONTEXTO REAL (Accordion System) -->
   <!-- ============================================== -->
-  <section id="contexto" class="py-16 sm:py-20 md:py-24 px-4 bg-white relative">>
-    <div class="max-w-5xl mx-auto">
+  <section
+    id="contexto"
+    class="scroll-section py-16 sm:py-20 md:py-24 px-4 bg-white relative"
+  >
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12 sm:mb-16">
         <h2 class="section-title">El Contexto Real: La Brecha Invisible</h2>
         <p class="section-subtitle mx-auto">
@@ -455,7 +474,9 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
                 >La Sincronía del Audio</strong
               >.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+            >
               <!-- Brecha 1 -->
               <div
                 class="bg-white p-4 sm:p-5 md:p-6 rounded-xl border border-error/20 shadow-sm"
@@ -610,7 +631,7 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
   <!-- Visión y Misión -->
   <section class="py-20 px-4 bg-gradient-to-r from-accent/10 to-primary/10">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12">
         <div class="card">
           <h3 class="text-2xl font-bold text-primary mb-4">
@@ -641,9 +662,9 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   <!-- Solución Section -->
   <section
     id="solucion"
-    class="py-20 px-4 bg-gradient-to-b from-accent/5 to-accent/10"
+    class="scroll-section py-20 px-4 bg-gradient-to-b from-accent/5 to-accent/10"
   >
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">La Solución: Rongo</h2>
       <p class="section-subtitle text-center">
         No es solo un transcriptor. Es un asistente comunicacional que te
@@ -808,8 +829,8 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   </section>
 
   <!-- Diferenciación Section -->
-  <section id="diferenciacion" class="py-20 px-4 bg-light-bg">
-    <div class="max-w-6xl mx-auto">
+  <section id="diferenciacion" class="scroll-section py-20 px-4 bg-light-bg">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">¿Por Qué Rongo Es Diferente?</h2>
       <p class="section-subtitle text-center">
         No competimos en el mismo juego. Definimos una nueva categoría.
@@ -906,11 +927,11 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
   <!-- Por Qué HonoRongo -->
   <section class="py-16 sm:py-20 px-4 bg-gradient-to-b from-accent/5 to-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">
         ¿Por qué HonoRongo by Hotu Software Solutions?
       </h2>
-      <p class="section-subtitle text-center max-w-4xl mx-auto">
+      <p class="section-subtitle text-center max-w-5xl mx-auto">
         HonoRongo no nace desde un laboratorio ni desde una hipótesis de
         mercado.<br />
         <strong class="text-primary">Nace desde la experiencia real.</strong>
@@ -918,9 +939,11 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
       <!-- Founder Story -->
       <div
-        class="mt-12 sm:mt-16 mb-8 sm:mb-12 bg-white/80 backdrop-blur border border-primary/20 rounded-2xl p-4 sm:p-6 md:p-10 shadow-lg max-w-5xl mx-auto"
+        class="mt-12 sm:mt-16 mb-8 sm:mb-12 bg-white/80 backdrop-blur border border-primary/20 rounded-2xl p-4 sm:p-6 md:p-10 shadow-lg max-w-6xl mx-auto"
       >
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
+        >
           <div
             class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-hero flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0"
           >
@@ -1064,13 +1087,15 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
   <!-- Arquitectura Section -->
   <section class="py-20 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">Arquitectura Técnica</h2>
       <p class="section-subtitle text-center">
         Diseñada para máximo rendimiento, seguridad y portabilidad futura a iOS.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12"
+      >
         <div class="card">
           <h4 class="text-lg font-bold text-primary mb-3">🎨 UI & OS</h4>
           <p class="text-text-primary text-sm">
@@ -1105,8 +1130,12 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
         </div>
       </div>
 
-      <div class="bg-primary rounded-xl p-4 sm:p-6 md:p-8 text-white mt-8 sm:mt-12">
-        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">¿Por Qué Rust para el Core?</h3>
+      <div
+        class="bg-primary rounded-xl p-4 sm:p-6 md:p-8 text-white mt-8 sm:mt-12"
+      >
+        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+          ¿Por Qué Rust para el Core?
+        </h3>
         <p class="mb-4">Elegimos Rust porque:</p>
         <ul class="space-y-2 text-sm">
           <li>
@@ -1132,7 +1161,7 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
   <!-- Modelo de Negocio -->
   <section class="py-20 px-4 bg-light-bg">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">
         Modelo Sostenible: Impacto + Rentabilidad
       </h2>
@@ -1235,9 +1264,9 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   <!-- Roadmap -->
   <section
     id="roadmap"
-    class="py-20 px-4 bg-gradient-to-b from-primary/5 to-accent/8"
+    class="scroll-section py-20 px-4 bg-gradient-to-b from-primary/5 to-accent/8"
   >
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">
         Roadmap: De la Inclusión Comunicacional a la Inclusión Cultural
       </h2>
@@ -1245,7 +1274,7 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
         Un viaje de 3 años. Cada fase resuelve un problema real.
       </p>
 
-      <div class="space-y-6 md:space-y-8 mt-12 md:mt-16 max-w-4xl mx-auto px-0">
+      <div class="space-y-6 md:space-y-8 mt-12 md:mt-16 max-w-5xl mx-auto px-0">
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
           <div class="flex flex-col items-center">
             <div
@@ -1332,8 +1361,8 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   </section>
 
   <!-- Impacto Social -->
-  <section id="impacto" class="py-20 px-4 bg-light-bg">
-    <div class="max-w-6xl mx-auto">
+  <section id="impacto" class="scroll-section py-20 px-4 bg-light-bg">
+    <div class="max-w-7xl mx-auto">
       <h2 class="section-title text-center">
         Impacto Verificable en Tres Ejes
       </h2>
@@ -1408,8 +1437,12 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
         </div>
       </div>
 
-      <div class="mt-8 sm:mt-12 bg-white rounded-xl p-4 sm:p-6 md:p-8 border-2 border-primary">
-        <h4 class="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">La Pregunta Real</h4>
+      <div
+        class="mt-8 sm:mt-12 bg-white rounded-xl p-4 sm:p-6 md:p-8 border-2 border-primary"
+      >
+        <h4 class="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">
+          La Pregunta Real
+        </h4>
         <p class="text-text-primary leading-relaxed mb-3 sm:mb-4">
           ¿Cuántas personas en el mundo tienen derecho a una llamada telefónica
           privada? <strong>Todas.</strong>
@@ -1424,8 +1457,11 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
   </section>
 
   <!-- Inversión -->
-  <section class="py-20 px-4 bg-gradient-to-b from-accent/8 to-primary/5">
-    <div class="max-w-4xl mx-auto text-center">
+  <section
+    id="inversion"
+    class="scroll-section py-20 px-4 bg-gradient-to-b from-accent/8 to-primary/5"
+  >
+    <div class="max-w-5xl mx-auto text-center">
       <h2 class="section-title">Por Qué Invertir en Rongo</h2>
 
       <div class="grid md:grid-cols-2 gap-12 mt-12 mb-16">
@@ -1500,25 +1536,37 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
         </div>
       </div>
 
-      <div class="bg-gradient-hero rounded-xl p-6 sm:p-8 md:p-12 text-white text-center">
-        <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Inversión Requerida</h3>
-        <p class="text-white/80 text-sm sm:text-base">Contacta para detalles específicos</p>
+      <div
+        class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-6 sm:p-8 md:p-12 text-white text-center shadow-lg"
+      >
+        <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 text-white">
+          Inversión Requerida
+        </h3>
+        <p class="text-white text-sm sm:text-base">
+          Contacta para detalles específicos
+        </p>
       </div>
     </div>
   </section>
 
   <!-- CTA Final -->
   <section class="py-16 sm:py-20 px-4 bg-light-bg">
-    <div class="max-w-4xl mx-auto text-center">
+    <div class="max-w-5xl mx-auto text-center">
       <h2 class="section-title">¿Listo para Revolucionar la Accesibilidad?</h2>
       <p class="section-subtitle">El silencio no es opción. Contáctanos hoy.</p>
 
       <div class="flex gap-3 sm:gap-4 justify-center flex-wrap mb-8 sm:mb-12">
-        <button class="btn-primary text-sm sm:text-base py-2 sm:py-3">Agendar Reunión</button>
-        <button class="btn-secondary text-sm sm:text-base py-2 sm:py-3">Descargar Informe Técnico</button>
+        <button class="btn-primary text-sm sm:text-base py-2 sm:py-3"
+          >Agendar Reunión</button
+        >
+        <button class="btn-secondary text-sm sm:text-base py-2 sm:py-3"
+          >Descargar Informe Técnico</button
+        >
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-12 sm:mt-16">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-12 sm:mt-16"
+      >
         <div>
           <p class="text-text-primary mb-2 font-semibold">📧 Email</p>
           <p class="text-primary-light font-bold">contacto@hotusoft.cl</p>
@@ -1535,12 +1583,14 @@ import HonRongoLayout from "../layouts/HonRongoLayout.astro";
 
   <!-- Footer -->
   <footer class="py-6 sm:py-8 px-4 gradient-hero">
-    <div class="max-w-6xl mx-auto text-center text-white text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto text-center text-white text-xs sm:text-sm">
       <p class="font-semibold">© 2026 Hotu Software Solutions SpA</p>
       <p class="mt-1 sm:mt-2 text-white/80">
         Rongo: Inclusión Comunicacional escuchar para conectar
       </p>
-      <p class="mt-1 sm:mt-2 text-white/70">Nacida en Chile 🇨🇱 • Para el mundo 🌍</p>
+      <p class="mt-1 sm:mt-2 text-white/70">
+        Nacida en Chile 🇨🇱 • Para el mundo 🌍
+      </p>
     </div>
   </footer>
 

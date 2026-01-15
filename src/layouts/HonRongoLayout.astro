@@ -77,8 +77,7 @@ const ogImageURL = `${siteURL}/social.webp`;
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"
-        ></path>
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
 
@@ -87,7 +86,8 @@ const ogImageURL = `${siteURL}/social.webp`;
       id="mobile-menu-overlay"
       class="hidden lg:hidden fixed inset-0 bg-black/50 z-30 transition-opacity duration-300"
       style="display: none;"
-    ></div>
+    >
+    </div>
 
     <!-- Mobile Menu (slides from left) -->
     <aside
@@ -99,14 +99,16 @@ const ogImageURL = `${siteURL}/social.webp`;
     </aside>
 
     <!-- Container with Sidebar -->
-    <div class="flex pt-16 lg:pt-20">
-      <!-- Sidebar de HonoRongo (solo en desktop) -->
-      <aside class="hidden lg:block w-64 fixed left-0 top-16 lg:top-20 h-[calc(100vh-80px)] overflow-y-auto bg-white border-r border-slate-100 z-40 lg:sticky">
+    <div class="flex">
+      <!-- Sidebar de HonoRongo (solo en desktop) - LAYOUT -->
+      <aside
+        class="hidden lg:block w-auto fixed left-0 top-16 lg:top-20 h-[calc(100vh-80px)] overflow-y-auto bg-white border-r border-slate-100 z-40"
+      >
         <HonRongoSidebar />
       </aside>
 
-      <!-- Main Content -->
-      <main class="w-full lg:w-[calc(100%-256px)] lg:ml-auto">
+      <!-- Main Content - Descuenta el sidebar -->
+      <main class="w-full lg:ml-[200px]">
         <slot />
       </main>
     </div>
@@ -115,21 +117,21 @@ const ogImageURL = `${siteURL}/social.webp`;
 
     <script is:inline>
       // Simple and direct mobile menu handler
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const btn = document.getElementById("mobile-menu-btn");
         const menu = document.getElementById("mobile-menu");
         const overlay = document.getElementById("mobile-menu-overlay");
-        
+
         if (!btn || !menu || !overlay) {
           console.log("Menu elements not found");
           return;
         }
 
         // Toggle menu
-        btn.onclick = function(e) {
+        btn.onclick = function (e) {
           e.preventDefault();
           const isOpen = menu.style.transform === "translateX(0px)";
-          
+
           if (isOpen) {
             // Close menu
             menu.style.transform = "translateX(-100%)";
@@ -144,7 +146,7 @@ const ogImageURL = `${siteURL}/social.webp`;
         };
 
         // Close on overlay click
-        overlay.onclick = function() {
+        overlay.onclick = function () {
           menu.style.transform = "translateX(-100%)";
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
@@ -152,8 +154,8 @@ const ogImageURL = `${siteURL}/social.webp`;
 
         // Close on link click
         const links = menu.querySelectorAll("a");
-        links.forEach(function(link) {
-          link.onclick = function() {
+        links.forEach(function (link) {
+          link.onclick = function () {
             menu.style.transform = "translateX(-100%)";
             overlay.style.display = "none";
             document.body.style.overflow = "auto";
@@ -161,7 +163,7 @@ const ogImageURL = `${siteURL}/social.webp`;
         });
 
         // Close on escape
-        document.addEventListener("keydown", function(e) {
+        document.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
             menu.style.transform = "translateX(-100%)";
             overlay.style.display = "none";
@@ -179,7 +181,10 @@ const ogImageURL = `${siteURL}/social.webp`;
   }
 
   :global(body) {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   /* Mobile Menu Styles */
