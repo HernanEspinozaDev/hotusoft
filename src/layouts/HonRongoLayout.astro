@@ -1,0 +1,206 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+import "../styles/main.css";
+import Navbar from "../components/layout/Navbar.astro";
+import HonRongoSidebar from "../components/honorongo/HonRongoSidebar.astro";
+
+const {
+  title = "HonoRongo - Accesibilidad Telefónica",
+  description = "La primera solución bidireccional de accesibilidad telefónica. 100% privada, offline y confiable.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteURL =
+  Astro.site?.toString().replace(/\/$/, "") || "https://hotusoft.com";
+
+const ogImageURL = `${siteURL}/social.webp`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https:; img-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:;"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563EB" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="HOTU SOFTWARE SOLUTIONS SPA" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="HotuSoft" />
+
+    <title>{title}</title>
+  </head>
+  <body class="scroll-smooth overflow-x-hidden">
+    <!-- Navbar de HotuSoft -->
+    <Navbar isHonoRongo={true} />
+
+    <!-- Mobile Menu Button (visible only on mobile) -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden fixed left-4 top-20 z-50 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg"
+      aria-label="Abrir menú de navegación"
+      type="button"
+    >
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobile-menu-overlay"
+      class="hidden lg:hidden fixed inset-0 bg-black/50 z-30 transition-opacity duration-300"
+      style="display: none;"
+    ></div>
+
+    <!-- Mobile Menu (slides from left) -->
+    <aside
+      id="mobile-menu"
+      class="lg:hidden fixed left-0 top-0 h-screen w-72 bg-white z-40 shadow-2xl overflow-y-auto transition-all duration-300 ease-out"
+      style="transform: translateX(-100%); top: 0;"
+    >
+      <HonRongoSidebar />
+    </aside>
+
+    <!-- Container with Sidebar -->
+    <div class="flex pt-16 lg:pt-20">
+      <!-- Sidebar de HonoRongo (solo en desktop) -->
+      <aside class="hidden lg:block w-64 fixed left-0 top-16 lg:top-20 h-[calc(100vh-80px)] overflow-y-auto bg-white border-r border-slate-100 z-40 lg:sticky">
+        <HonRongoSidebar />
+      </aside>
+
+      <!-- Main Content -->
+      <main class="w-full lg:w-[calc(100%-256px)] lg:ml-auto">
+        <slot />
+      </main>
+    </div>
+
+    <!-- No Footer en HonoRongo -->
+
+    <script is:inline>
+      // Simple and direct mobile menu handler
+      document.addEventListener("DOMContentLoaded", function() {
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        const overlay = document.getElementById("mobile-menu-overlay");
+        
+        if (!btn || !menu || !overlay) {
+          console.log("Menu elements not found");
+          return;
+        }
+
+        // Toggle menu
+        btn.onclick = function(e) {
+          e.preventDefault();
+          const isOpen = menu.style.transform === "translateX(0px)";
+          
+          if (isOpen) {
+            // Close menu
+            menu.style.transform = "translateX(-100%)";
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+          } else {
+            // Open menu
+            menu.style.transform = "translateX(0px)";
+            overlay.style.display = "block";
+            document.body.style.overflow = "hidden";
+          }
+        };
+
+        // Close on overlay click
+        overlay.onclick = function() {
+          menu.style.transform = "translateX(-100%)";
+          overlay.style.display = "none";
+          document.body.style.overflow = "auto";
+        };
+
+        // Close on link click
+        const links = menu.querySelectorAll("a");
+        links.forEach(function(link) {
+          link.onclick = function() {
+            menu.style.transform = "translateX(-100%)";
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+          };
+        });
+
+        // Close on escape
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") {
+            menu.style.transform = "translateX(-100%)";
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Mobile Menu Styles */
+  :global(#mobile-menu) {
+    will-change: transform;
+  }
+
+  :global(#mobile-menu.open) {
+    transform: translateX(0);
+  }
+
+  :global(#mobile-menu-overlay) {
+    will-change: opacity;
+  }
+
+  :global(#mobile-menu-overlay.show) {
+    display: block;
+  }
+
+  /* Prevent body scroll when menu is open */
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+</style>

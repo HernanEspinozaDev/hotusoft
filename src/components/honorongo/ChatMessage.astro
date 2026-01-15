@@ -1,0 +1,31 @@
+---
+interface Props {
+    type: "received" | "sent";
+    text: string;
+    time?: string;
+}
+
+const { type, text, time = "Ahora" } = Astro.props;
+
+const containerClass = type === "received" ? "justify-start" : "justify-end";
+
+const bubbleClass =
+    type === "received"
+        ? "bg-slate-100 text-slate-700 rounded-tl-none"
+        : "bg-hono-lavanda text-hono-blue-deep rounded-tr-none";
+---
+
+<div class={`flex w-full mb-4 ${containerClass}`}>
+    <div class={`max-w-[85%] relative group`}>
+        <div
+            class={`px-4 py-3 rounded-2xl text-sm md:text-base leading-relaxed ${bubbleClass}`}
+        >
+            {text}
+        </div>
+        <span
+            class="text-[10px] text-slate-400 mt-1 block opacity-0 group-hover:opacity-100 transition-opacity px-1"
+        >
+            {time}
+        </span>
+    </div>
+</div>

@@ -1,0 +1,1586 @@
+---
+import HonRongoLayout from "../layouts/HonRongoLayout.astro";
+---
+
+<HonRongoLayout title="Rongo - Accesibilidad Telefónica">
+  <!-- Hero Section -->
+  <section class="pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-24 md:pb-32 px-4 gradient-hero relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <svg
+        class="w-full h-full"
+        viewBox="0 0 1200 600"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <pattern
+            id="wave"
+            x="0"
+            y="0"
+            width="120"
+            height="120"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M0,60 Q30,50 60,60 T120,60"
+              stroke="#A5B4FC"
+              stroke-width="2"
+              fill="none"></path>
+          </pattern>
+        </defs>
+        <rect width="1200" height="600" fill="url(#wave)"></rect>
+      </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+        Escuchar para <span class="block">Conectar</span>
+      </h1>
+      <p
+        class="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed"
+      >
+        La primera solución bidireccional de accesibilidad telefónica. <strong
+          >100% privada, offline y confiable.</strong
+        >
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16 lg:mt-20 max-w-3xl mx-auto px-0">
+        <div class="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6 text-white">
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">700K+</div>
+          <div class="text-xs sm:text-sm opacity-90">
+            Personas con discapacidad auditiva en Chile
+          </div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-lg p-6 text-white">
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">1.5B</div>
+          <div class="text-xs sm:text-sm opacity-90">Usuarios potenciales globales</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-lg p-6 text-white">
+          <div class="text-2xl sm:text-3xl font-bold text-accent mb-2">&lt;200ms</div>
+          <div class="text-xs sm:text-sm opacity-90">Latencia crítica conseguida</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- NEW SECTION: CONTEXTO REAL (Accordion System) -->
+  <!-- ============================================== -->
+  <section id="contexto" class="py-16 sm:py-20 md:py-24 px-4 bg-white relative">>
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="section-title">El Contexto Real: La Brecha Invisible</h2>
+        <p class="section-subtitle mx-auto">
+          Basado en el <strong class="text-primary"
+            >Informe de Brechas de Accesibilidad</strong
+          >. No es solo un problema de audición, es un problema de sincronía y
+          derechos.
+        </p>
+      </div>
+
+      <!-- Main Accordion Container -->
+      <div class="space-y-6">
+        <!-- Accordion 1: Deaf Community -->
+        <div
+          class="card p-0 overflow-hidden border-l-8 border-l-secondary accordion-wrapper group"
+        >
+          <button
+            class="w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
+              >
+                🧏
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  Comunidad Sorda e Hipoacúsica
+                </h3>
+                <p class="text-gray-500">
+                  Más de 500.000 personas. Contexto LSCh vs Español.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-4xl text-gray-300 group-hover:text-secondary transition-colors origin-center transform duration-300 accordion-arrow"
+            >
+              ↓
+            </div>
+          </button>
+
+          <div
+            class="accordion-content hidden bg-gray-50/50 p-8 border-t border-gray-100"
+          >
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <!-- Left: The Problem & State Gap -->
+              <div class="space-y-6">
+                <div>
+                  <h4
+                    class="font-bold text-gray-800 mb-2 flex items-center gap-2"
+                  >
+                    🏛️ Ayuda Estatal Actual
+                  </h4>
+                  <ul
+                    class="text-sm text-gray-600 bg-white p-4 rounded-lg border border-gray-200 shadow-sm space-y-2"
+                  >
+                    <li>
+                      • <strong>GES/AUGE:</strong> Audífonos e implantes cocleares.
+                    </li>
+                    <li>
+                      • <strong>VIAD:</strong> Plataforma de video-interpretación.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-error mb-2 flex items-center gap-2">
+                    ⚠️ La Brecha Real (Lo que falta)
+                  </h4>
+                  <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                    <li>
+                      <strong>Inaccesibilidad GSM:</strong> La red telefónica es 100%
+                      audio. Los audífonos se acoplan o no sirven para llamar.
+                    </li>
+                    <li>
+                      <strong>Dependencia:</strong> VIAD requiere un 3ro humano (pérdida
+                      de privacidad) y depende de horarios/internet.
+                    </li>
+                    <li>
+                      <strong>Urgencia:</strong> No pueden llamar al 133/131 por sí
+                      mismos.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Right: Rongo Solution -->
+              <div
+                class="bg-white p-6 rounded-xl border border-secondary/20 shadow-sm relative flex flex-col justify-center"
+              >
+                <div
+                  class="absolute -top-3 -right-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
+                >
+                  SOLUCIÓN RONGO
+                </div>
+                <h4 class="font-bold text-primary mb-3 text-lg">
+                  👂 → 👁️ Puente Sensorial
+                </h4>
+                <p class="text-sm text-gray-700 mb-4">
+                  Rongo transforma el <strong>Audio en Texto Visual</strong> en tiempo
+                  real, sin intermediarios.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      ><strong>Privacidad Total:</strong> Edge AI local. Nadie te
+                      lee.</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      ><strong>100% Offline:</strong> Funciona en zonas rurales.</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 2: Speech Disorders & Aphasia -->
+        <div
+          class="card p-0 overflow-hidden border-l-8 border-l-primary accordion-wrapper group"
+        >
+          <button
+            class="w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
+              >
+                🗣️
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  Trastornos del Habla y Afasias
+                </h3>
+                <p class="text-gray-500">
+                  Mudos, Laringectomizados, Secuelas ACV.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-4xl text-gray-300 group-hover:text-primary transition-colors origin-center transform duration-300 accordion-arrow"
+            >
+              ↓
+            </div>
+          </button>
+
+          <div
+            class="accordion-content hidden bg-gray-50/50 p-8 border-t border-gray-100"
+          >
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <!-- Left: The Problem & State Gap -->
+              <div class="space-y-6">
+                <div>
+                  <h4
+                    class="font-bold text-gray-800 mb-2 flex items-center gap-2"
+                  >
+                    🏛️ Ayuda Estatal Actual
+                  </h4>
+                  <ul
+                    class="text-sm text-gray-600 bg-white p-4 rounded-lg border border-gray-200 shadow-sm space-y-2"
+                  >
+                    <li>
+                      • <strong>Rehabilitación:</strong> Fonoaudiología en sistema
+                      público.
+                    </li>
+                    <li>
+                      • <strong>Credencial:</strong> Beneficios y subsidios sociales.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-error mb-2 flex items-center gap-2">
+                    ⚠️ La Brecha de Tiempo
+                  </h4>
+                  <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                    <li>
+                      <strong>Latencia Crítica:</strong> Pueden escuchar, pero no
+                      responder en &lt;2 seg. <span class="italic"
+                        >Resultado: Les cortan la llamada.</span
+                      >
+                    </li>
+                    <li>
+                      <strong>Calidad de Voz:</strong> Voces esofágicas suenan metálicas
+                      o robóticas por teléfono.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Right: Rongo Solution -->
+              <div
+                class="bg-white p-6 rounded-xl border border-primary/20 shadow-sm relative flex flex-col justify-center"
+              >
+                <div
+                  class="absolute -top-3 -right-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
+                >
+                  SOLUCIÓN RONGO
+                </div>
+                <h4 class="font-bold text-primary mb-3 text-lg">
+                  🖐️ → 🗣️ Puente Sensorial
+                </h4>
+                <p class="text-sm text-gray-700 mb-4">
+                  Rongo transforma tu <strong>Escritura en Voz Natural</strong> instantánea.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      ><strong>TTS Neural:</strong> Voz humana chilena, no robot.</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      ><strong>Velocidad:</strong> Respuestas rápidas de un toque.</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 3: Neurodivergence & ASD -->
+        <div
+          class="card p-0 overflow-hidden border-l-8 border-l-accent accordion-wrapper group"
+        >
+          <button
+            class="w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
+              >
+                🧠
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  Neurodivergencia y TEA
+                </h3>
+                <p class="text-gray-500">
+                  Ley TEA 21.545 - Ansiedad Social y Telefobia.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-4xl text-gray-300 group-hover:text-accent transition-colors origin-center transform duration-300 accordion-arrow"
+            >
+              ↓
+            </div>
+          </button>
+
+          <div
+            class="accordion-content hidden bg-gray-50/50 p-8 border-t border-gray-100"
+          >
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <!-- Left: The Problem & State Gap -->
+              <div class="space-y-6">
+                <div>
+                  <h4
+                    class="font-bold text-gray-800 mb-2 flex items-center gap-2"
+                  >
+                    🏛️ Ayuda Estatal Actual
+                  </h4>
+                  <ul
+                    class="text-sm text-gray-600 bg-white p-4 rounded-lg border border-gray-200 shadow-sm space-y-2"
+                  >
+                    <li>
+                      • <strong>Ley TEA:</strong> Diagnóstico e inclusión escolar/laboral.
+                    </li>
+                    <li>
+                      • <strong>Espacios de Calma:</strong> Adaptaciones físicas en
+                      escuelas.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-error mb-2 flex items-center gap-2">
+                    ⚠️ Sobrecarga Sensorial
+                  </h4>
+                  <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                    <li>
+                      <strong>Telefobia:</strong> El audio de baja calidad + presión
+                      de tiempo = Bloqueo (Shutdown).
+                    </li>
+                    <li>
+                      <strong>Vacío Digital:</strong> La Ley TEA no cubre herramientas
+                      tecnológicas para la vida diaria independiente.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Right: Rongo Solution -->
+              <div
+                class="bg-white p-6 rounded-xl border border-accent/30 shadow-sm relative flex flex-col justify-center"
+              >
+                <div
+                  class="absolute -top-3 -right-3 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full shadow-md"
+                >
+                  SOLUCIÓN RONGO
+                </div>
+                <h4 class="font-bold text-primary mb-3 text-lg">
+                  🛡️ Puente Sensorial: El Escudo
+                </h4>
+                <p class="text-sm text-gray-700 mb-4">
+                  Un <strong>Buffer Cognitivo</strong>. Lee a tu ritmo, responde
+                  cuando estés listo.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      >Elimina ruido de fondo y ansiedad.</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs"
+                      >✔</span
+                    >
+                    <span class="text-sm text-gray-600"
+                      >Permite gestión de tiempos (sin presión).</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 4: La Gran Brecha -->
+        <div
+          class="card p-0 overflow-hidden border-l-8 border-l-error accordion-wrapper group"
+        >
+          <button
+            class="w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="w-16 h-16 rounded-full bg-error/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
+              >
+                🚧
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  La "Gran Brecha": El Canal Telefónico como Muro
+                </h3>
+                <p class="text-gray-500">
+                  3 Brechas Críticas: Tiempo, Formato y Privacidad.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-4xl text-gray-300 group-hover:text-error transition-colors origin-center transform duration-300 accordion-arrow"
+            >
+              ↓
+            </div>
+          </button>
+
+          <div
+            class="accordion-content hidden bg-gray-50/50 p-8 border-t border-gray-100"
+          >
+            <p class="text-gray-700 mb-6">
+              Existe una brecha tecnológica específica que nadie está cubriendo: <strong
+                >La Sincronía del Audio</strong
+              >.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <!-- Brecha 1 -->
+              <div
+                class="bg-white p-4 sm:p-5 md:p-6 rounded-xl border border-error/20 shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-2xl">⏱️</span>
+                  <h4 class="font-bold text-error">Brecha de Tiempo</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  Las llamadas exigen respuestas inmediatas (&lt; 2 segundos).
+                </p>
+                <p
+                  class="text-xs text-gray-500 italic bg-gray-100 p-3 rounded-lg"
+                >
+                  <strong>Impacto:</strong> Las personas con tartamudez, afasia o
+                  TEA necesitan más tiempo de procesamiento. Al no responder rápido,
+                  el interlocutor corta.
+                </p>
+              </div>
+              <!-- Brecha 2 -->
+              <div
+                class="bg-white p-4 sm:p-5 md:p-6 rounded-xl border border-error/20 shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-2xl">📻</span>
+                  <h4 class="font-bold text-error">Brecha de Formato</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  La red telefónica solo transmite audio.
+                </p>
+                <p
+                  class="text-xs text-gray-500 italic bg-gray-100 p-3 rounded-lg"
+                >
+                  <strong>Impacto:</strong> Las personas Sordas quedan fuera del sistema
+                  financiero, salud y emergencias que dependen de llamadas telefónicas.
+                </p>
+              </div>
+              <!-- Brecha 3 -->
+              <div
+                class="bg-white p-4 sm:p-5 md:p-6 rounded-xl border border-error/20 shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-2xl">🔒</span>
+                  <h4 class="font-bold text-error">Brecha de Privacidad</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  Las soluciones actuales requieren intermediarios humanos.
+                </p>
+                <p
+                  class="text-xs text-gray-500 italic bg-gray-100 p-3 rounded-lg"
+                >
+                  <strong>Impacto:</strong> Un adulto no es independiente si su madre
+                  debe llamar al médico por él. Se pierde la autonomía.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 5: Argumento de Integración -->
+        <div
+          class="card p-0 overflow-hidden border-l-8 border-l-success accordion-wrapper group"
+        >
+          <button
+            class="w-full text-left p-8 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
+            <div class="flex items-center gap-6">
+              <div
+                class="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
+              >
+                🌉
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-primary">
+                  HonoRongo: El Puente Sensorial
+                </h3>
+                <p class="text-gray-500">
+                  Justificación de la solución ante la brecha nacional.
+                </p>
+              </div>
+            </div>
+            <div
+              class="text-4xl text-gray-300 group-hover:text-success transition-colors origin-center transform duration-300 accordion-arrow"
+            >
+              ↓
+            </div>
+          </button>
+
+          <div
+            class="accordion-content hidden bg-gray-50/50 p-8 border-t border-gray-100"
+          >
+            <p class="text-gray-700 mb-6">
+              Mientras el Estado Chileno se enfoca en la rehabilitación clínica
+              (audífonos, terapias) y la accesibilidad física (rampas, lengua de
+              señas en TV), <strong class="text-primary"
+                >HonoRongo aborda la accesibilidad digital en
+                telecomunicaciones.</strong
+              >
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <!-- Para el Sordo -->
+              <div
+                class="bg-white p-6 rounded-xl border border-secondary/20 shadow-sm text-center"
+              >
+                <div class="text-4xl mb-3">👂 → 👁️</div>
+                <h4 class="font-bold text-primary mb-2">Para el Sordo</h4>
+                <p class="text-sm text-gray-600">
+                  Transforma el canal auditivo (inaccesible) en <strong
+                    >visual</strong
+                  > (accesible).
+                </p>
+              </div>
+              <!-- Para el Mudo -->
+              <div
+                class="bg-white p-6 rounded-xl border border-primary/20 shadow-sm text-center"
+              >
+                <div class="text-4xl mb-3">🖐️ → 🗣️</div>
+                <h4 class="font-bold text-primary mb-2">
+                  Para el Mudo/Afásico
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Transforma el input táctil (texto) en <strong
+                    >output auditivo</strong
+                  > (voz).
+                </p>
+              </div>
+              <!-- Para TEA -->
+              <div
+                class="bg-white p-6 rounded-xl border border-accent/30 shadow-sm text-center"
+              >
+                <div class="text-4xl mb-3">🛡️</div>
+                <h4 class="font-bold text-primary mb-2">Para Persona TEA</h4>
+                <p class="text-sm text-gray-600">
+                  Actúa como un <strong>"escudo"</strong> que reduce la carga sensorial
+                  y la presión social.
+                </p>
+              </div>
+            </div>
+            <div class="bg-primary/5 p-6 rounded-xl border border-primary/20">
+              <p class="text-gray-700 italic text-center">
+                "Al operar de manera local (offline) y mediante IA, democratiza
+                el acceso sin depender de planes de datos costosos ni de la
+                disponibilidad de intérpretes humanos, devolviendo el derecho
+                fundamental a la <strong>privacidad y autonomía</strong>."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visión y Misión -->
+  <section class="py-20 px-4 bg-gradient-to-r from-accent/10 to-primary/10">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="card">
+          <h3 class="text-2xl font-bold text-primary mb-4">
+            🎯 Nuestra Misión
+          </h3>
+          <p class="text-text-primary leading-relaxed">
+            Romper la barrera del silencio en las comunicaciones telefónicas.
+            Queremos que 700 mil personas en Chile —y 1.5 billones en el mundo—
+            puedan contestar una llamada, expresarse y sentir que el mundo las
+            escucha, sin depender de terceros y sin comprometer su privacidad.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-2xl font-bold text-primary mb-4">
+            ✨ Nuestra Visión
+          </h3>
+          <p class="text-text-primary leading-relaxed">
+            Un mundo donde la discapacidad auditiva no sea barrera para la
+            comunicación. Rongo es el puente que transforma cada teléfono en una
+            terminal accesible, descentralizada y centrada en la dignidad de
+            quienes la usan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solución Section -->
+  <section
+    id="solucion"
+    class="py-20 px-4 bg-gradient-to-b from-accent/5 to-accent/10"
+  >
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">La Solución: Rongo</h2>
+      <p class="section-subtitle text-center">
+        No es solo un transcriptor. Es un asistente comunicacional que te
+        devuelve la voz.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center mt-16">
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <div class="feature-icon flex-shrink-0">🎙️</div>
+            <div>
+              <h4 class="text-xl font-bold text-primary mb-2">
+                Escuchas Lo Que Dicen
+              </h4>
+              <p class="text-text-primary">
+                Transcripción en tiempo real de la voz de quien llama, adaptada
+                al español chileno. Sin demoras, sin algoritmos genéricos.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="feature-icon flex-shrink-0">✍️</div>
+            <div>
+              <h4 class="text-xl font-bold text-primary mb-2">
+                Escribes Tu Respuesta
+              </h4>
+              <p class="text-text-primary">
+                Interfaz intuitiva con sugerencias inteligentes y escritura
+                predictiva. Es como escribir en una app de mensajes, pero en
+                tiempo real.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="feature-icon flex-shrink-0">🔊</div>
+            <div>
+              <h4 class="text-xl font-bold text-primary mb-2">
+                Ellos Te Escuchan
+              </h4>
+              <p class="text-text-primary">
+                Tu texto se convierte en voz natural y se inyecta en la llamada.
+                Para el otro lado de la línea, es como si hablaras normalmente.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="feature-icon flex-shrink-0">🛡️</div>
+            <div>
+              <h4 class="text-xl font-bold text-primary mb-2">
+                Privacidad Absoluta
+              </h4>
+              <p class="text-text-primary">
+                Todo ocurre en tu dispositivo. Cero datos en servidores. Cero
+                conexión a internet requerida. Tu voz y tu privacidad, siempre
+                tuyas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-dark">
+          <h3 class="text-2xl font-bold text-primary mb-8">
+            La Experiencia Paso a Paso
+          </h3>
+          <div class="space-y-6">
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-8 h-8 rounded-full bg-primary-light text-white flex items-center justify-center font-bold flex-shrink-0"
+              >
+                1
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Entra una llamada</p>
+                <p class="text-text-primary text-sm">
+                  Ves en pantalla quién te llama. Control total.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-8 h-8 rounded-full bg-primary-light text-white flex items-center justify-center font-bold flex-shrink-0"
+              >
+                2
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Rongo contesta por ti</p>
+                <p class="text-text-primary text-sm">
+                  Un saludo automático: "Hola, estoy usando un asistente de
+                  texto"
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-8 h-8 rounded-full bg-primary-light text-white flex items-center justify-center font-bold flex-shrink-0"
+              >
+                3
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Lees y respondes</p>
+                <p class="text-text-primary text-sm">
+                  Lo que dicen aparece en texto. Tú escribes tu respuesta.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-8 h-8 rounded-full bg-primary-light text-white flex items-center justify-center font-bold flex-shrink-0"
+              >
+                4
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Ellos escuchan tu voz</p>
+                <p class="text-text-primary text-sm">
+                  Tu texto se convierte en voz natural. Conversación fluida.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo de chat -->
+      <div class="mt-16 max-w-2xl mx-auto">
+        <p class="text-center text-text-primary font-semibold mb-6">
+          Así se ve una conversación en Rongo:
+        </p>
+        <div class="space-y-4">
+          <div class="flex justify-start">
+            <div class="speech-bubble-input max-w-xs">
+              <p class="text-sm">
+                Hola María, ¿cómo estás? ¿Va a llegar a la cita de mañana?
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="speech-bubble-response max-w-xs">
+              <p class="text-sm">
+                Sí, llegaré a las 15:30. Necesito que me hagas un favor.
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-start">
+            <div class="speech-bubble-input max-w-xs">
+              <p class="text-sm">Claro, ¿cuál es?</p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="speech-bubble-response max-w-xs">
+              <p class="text-sm">
+                Traer mi receta del doctor. Está en tu escritorio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-text-primary text-sm mt-6 italic">
+          Para quien recibe la llamada, solo escucha una voz natural. Para
+          María, solo ve texto. Sin intermediarios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciación Section -->
+  <section id="diferenciacion" class="py-20 px-4 bg-light-bg">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">¿Por Qué Rongo Es Diferente?</h2>
+      <p class="section-subtitle text-center">
+        No competimos en el mismo juego. Definimos una nueva categoría.
+      </p>
+
+      <div class="overflow-x-auto mt-12">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b-2 border-primary">
+              <th class="pb-4 text-primary font-bold">Característica</th>
+              <th class="pb-4 text-text-primary text-center"
+                >Google Live Transcribe</th
+              >
+              <th class="pb-4 text-primary-light font-bold text-center"
+                >Rongo</th
+              >
+            </tr>
+          </thead>
+          <tbody class="space-y-3">
+            <tr class="border-b border-gray-300">
+              <td class="py-4 font-semibold text-primary">¿Puedes responder?</td
+              >
+              <td class="py-4 text-center">❌ Solo lees</td>
+              <td class="py-4 text-center text-primary-light font-semibold"
+                >✅ Lees y hablas</td
+              >
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="py-4 font-semibold text-primary"
+                >¿Funciona sin internet?</td
+              >
+              <td class="py-4 text-center">❌ Requiere datos</td>
+              <td class="py-4 text-center text-primary-light font-semibold"
+                >✅ 100% offline</td
+              >
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="py-4 font-semibold text-primary"
+                >¿Dónde van tus datos?</td
+              >
+              <td class="py-4 text-center">❌ A servidores de Google</td>
+              <td class="py-4 text-center text-primary-light font-semibold"
+                >✅ En tu teléfono</td
+              >
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="py-4 font-semibold text-primary">¿Qué tan rápido?</td>
+              <td class="py-4 text-center text-error">🔴 500ms (lenta)</td>
+              <td class="py-4 text-center text-success font-semibold"
+                >🟢 &lt;200ms (natural)</td
+              >
+            </tr>
+            <tr class="border-b border-gray-300">
+              <td class="py-4 font-semibold text-primary"
+                >¿Entiende el chileno?</td
+              >
+              <td class="py-4 text-center">❌ Genérica</td>
+              <td class="py-4 text-center text-primary-light font-semibold"
+                >✅ Modismos locales</td
+              >
+            </tr>
+            <tr>
+              <td class="py-4 font-semibold text-primary"
+                >¿Y la lengua de señas?</td
+              >
+              <td class="py-4 text-center">❌ No existe</td>
+              <td class="py-4 text-center text-primary-light font-semibold"
+                >✅ En Fase 2 (2027)</td
+              >
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12 bg-white rounded-xl p-8 border-2 border-primary-light">
+        <h4 class="text-xl font-bold text-primary mb-4">
+          Lo Que Realmente Importa
+        </h4>
+        <p class="text-text-primary mb-6">
+          Google y Rogervoice son herramientas valiosas para ver subtítulos en
+          tiempo real. Pero están diseñadas para personas que <strong
+            >pueden hablar</strong
+          >. Rongo está diseñado para personas que <strong
+            >necesitan comunicarse de forma completa, sin depender de nadie.</strong
+          >
+        </p>
+        <p class="text-text-primary font-semibold text-primary">
+          Es la diferencia entre leer un mensaje y poder responder como si
+          hablaras.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por Qué HonoRongo -->
+  <section class="py-16 sm:py-20 px-4 bg-gradient-to-b from-accent/5 to-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">
+        ¿Por qué HonoRongo by Hotu Software Solutions?
+      </h2>
+      <p class="section-subtitle text-center max-w-4xl mx-auto">
+        HonoRongo no nace desde un laboratorio ni desde una hipótesis de
+        mercado.<br />
+        <strong class="text-primary">Nace desde la experiencia real.</strong>
+      </p>
+
+      <!-- Founder Story -->
+      <div
+        class="mt-12 sm:mt-16 mb-8 sm:mb-12 bg-white/80 backdrop-blur border border-primary/20 rounded-2xl p-4 sm:p-6 md:p-10 shadow-lg max-w-5xl mx-auto"
+      >
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div
+            class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-hero flex items-center justify-center text-3xl sm:text-4xl flex-shrink-0"
+          >
+            👤
+          </div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-primary">
+              Creado desde la vivencia, no desde la teoría
+            </h3>
+          </div>
+        </div>
+        <div class="space-y-3 sm:space-y-4 text-text-primary leading-relaxed">
+          <p class="text-base sm:text-lg">
+            El fundador de <strong>Hotu Software Solutions</strong>, <strong
+              class="text-primary">Hernán Espinoza</strong
+            >, Ingeniero en Informática, vive con <strong
+              >hipoacusia bilateral profunda</strong
+            > y utiliza un solo audífono para escuchar. Conoce de primera mano lo
+            que implica:
+          </p>
+          <ul class="pl-8 space-y-3 text-base">
+            <li class="flex items-start gap-3">
+              <span class="text-error text-xl mt-1">•</span>
+              <span>La dificultad de realizar una llamada telefónica.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-error text-xl mt-1">•</span>
+              <span>La pérdida de oportunidades laborales y sociales.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-error text-xl mt-1">•</span>
+              <span>La dependencia de terceros para comunicarse.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-error text-xl mt-1">•</span>
+              <span>La falta de autonomía en situaciones cotidianas.</span>
+            </li>
+          </ul>
+          <p class="text-lg font-semibold text-primary pt-4">
+            HonoRongo surge como respuesta directa a esa realidad.
+          </p>
+        </div>
+      </div>
+
+      <!-- Three Pillars -->
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <!-- Pillar 1: Technology with Purpose -->
+        <div class="card border-l-4 border-l-primary">
+          <div class="text-4xl mb-4">🧠</div>
+          <h3 class="text-lg font-bold text-primary mb-3">
+            Tecnología con propósito humano
+          </h3>
+          <p class="text-text-primary text-sm leading-relaxed">
+            Este software fue pensado e ideado <strong>para pares</strong>,
+            desde la comprensión profunda de las necesidades reales de las
+            personas con discapacidad auditiva. No se trata solo de "traducir
+            voz a texto", sino de <strong class="text-primary"
+              >restaurar la posibilidad de comunicarse con dignidad, seguridad y
+              autonomía</strong
+            >.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Enterprise Engineering -->
+        <div class="card border-l-4 border-l-secondary">
+          <div class="text-4xl mb-4">🏗️</div>
+          <h3 class="text-lg font-bold text-primary mb-3">
+            Ingeniería de nivel empresarial
+          </h3>
+          <p class="text-text-primary text-sm leading-relaxed mb-4">
+            La solución está construida sobre las mismas bases técnicas que
+            HotuSoft utiliza para proyectos críticos:
+          </p>
+          <ul class="text-text-primary text-sm space-y-2">
+            <li class="flex items-start gap-2">
+              <span class="text-success font-bold">✓</span>
+              <span
+                ><strong>Rust</strong>, lenguaje orientado a máxima performance
+                y seguridad.</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-success font-bold">✓</span>
+              <span
+                >Arquitectura para <strong>tiempo real</strong> y baja latencia.</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-success font-bold">✓</span>
+              <span
+                >Calidad de código crítica: <em>una falla no es aceptable</em
+                >.</span
+              >
+            </li>
+          </ul>
+          <p class="text-xs text-gray-500 italic mt-4">
+            Aquí, la tecnología no es un fin: es el medio para no perder una
+            conversación importante.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Real Empathy + Technical Excellence -->
+        <div class="card border-l-4 border-l-accent">
+          <div class="text-4xl mb-4">🤝</div>
+          <h3 class="text-lg font-bold text-primary mb-3">
+            Empatía real + excelencia técnica
+          </h3>
+          <p class="text-text-primary text-sm leading-relaxed mb-4">
+            HonoRongo combina dos mundos que rara vez se encuentran:
+          </p>
+          <ul class="text-text-primary text-sm space-y-2 mb-4">
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">→</span>
+              <span
+                ><strong>Empatía auténtica</strong>, basada en la experiencia
+                vivida.</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent font-bold">→</span>
+              <span
+                ><strong>Excelencia técnica</strong>, respaldada por años de
+                desarrollo profesional.</span
+              >
+            </li>
+          </ul>
+          <div
+            class="bg-primary/5 p-4 rounded-lg border border-primary/20 mt-4"
+          >
+            <p
+              class="text-sm text-primary font-semibold text-center leading-relaxed"
+            >
+              Por eso no es solo un producto de HotuSoft.<br />
+              <strong>Es una extensión de su propósito.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arquitectura Section -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">Arquitectura Técnica</h2>
+      <p class="section-subtitle text-center">
+        Diseñada para máximo rendimiento, seguridad y portabilidad futura a iOS.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
+        <div class="card">
+          <h4 class="text-lg font-bold text-primary mb-3">🎨 UI & OS</h4>
+          <p class="text-text-primary text-sm">
+            Kotlin + Jetpack Compose. Gestión nativa de llamadas en Android sin
+            librerías externas que puedan fallar.
+          </p>
+          <p class="text-xs text-accent mt-3 font-semibold">Capa 1</p>
+        </div>
+        <div class="card border-2 border-accent">
+          <h4 class="text-lg font-bold text-primary mb-3">🌉 JNI Bridge</h4>
+          <p class="text-text-primary text-sm">
+            Zero-copy transfer entre JVM y código nativo. Los buffers de audio
+            van directos, sin copias intermedias que causen latencia.
+          </p>
+          <p class="text-xs text-accent mt-3 font-semibold">Capa 2</p>
+        </div>
+        <div class="card">
+          <h4 class="text-lg font-bold text-primary mb-3">⚙️ Core (Rust)</h4>
+          <p class="text-text-primary text-sm">
+            Motor de audio + inferencia IA. Rust garantiza memory safety sin
+            garbage collection. Crítico en una llamada de 30 minutos.
+          </p>
+          <p class="text-xs text-accent mt-3 font-semibold">Capa 3</p>
+        </div>
+        <div class="card">
+          <h4 class="text-lg font-bold text-primary mb-3">🧠 Modelos IA</h4>
+          <p class="text-text-primary text-sm">
+            Whisper (STT) + Piper (TTS), ambos cuantizados a int8. Funciona en
+            CPUs móviles con &lt;300MB RAM.
+          </p>
+          <p class="text-xs text-accent mt-3 font-semibold">Capa 4</p>
+        </div>
+      </div>
+
+      <div class="bg-primary rounded-xl p-4 sm:p-6 md:p-8 text-white mt-8 sm:mt-12">
+        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">¿Por Qué Rust para el Core?</h3>
+        <p class="mb-4">Elegimos Rust porque:</p>
+        <ul class="space-y-2 text-sm">
+          <li>
+            ✅ <strong>Memory safety</strong> sin garbage collection (crítico en llamadas
+            largas que drenan batería)
+          </li>
+          <li>
+            ✅ <strong>Rendimiento cercano al metal</strong> para IA en tiempo real.
+            Cada ms cuenta.
+          </li>
+          <li>
+            ✅ <strong>70% reutilizable en iOS</strong> (Fase 2). No reescribimos
+            todo cuando pasemos a Apple.
+          </li>
+          <li>
+            ✅ <strong>Ecosistema maduro</strong> para IA: Burn, Candle, Ndarray.
+            Herramientas profesionales.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modelo de Negocio -->
+  <section class="py-20 px-4 bg-light-bg">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">
+        Modelo Sostenible: Impacto + Rentabilidad
+      </h2>
+      <p class="section-subtitle text-center">
+        Dos motores de ingresos complementarios
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <div class="card">
+          <h3 class="text-2xl font-bold text-primary mb-6">🎯 B2C: Freemium</h3>
+          <p class="text-text-primary text-sm mb-4">
+            <strong>Objetivo:</strong> Accesibilidad democrática. Que nadie quede
+            atrás por dinero.
+          </p>
+          <ul class="space-y-4 text-text-primary">
+            <li class="flex gap-3">
+              <span class="text-primary-light font-bold">→</span>
+              <div>
+                <p class="font-semibold text-primary">Gratuito: 100 min/mes</p>
+                <p class="text-sm">
+                  Suficiente para emergencias y uso básico. Sin publicidad.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-primary-light font-bold">→</span>
+              <div>
+                <p class="font-semibold text-primary">
+                  Premium: $1.000 CLP/mes
+                </p>
+                <p class="text-sm">
+                  Ilimitado + voces naturales + soporte prioritario
+                </p>
+                <p class="text-xs text-gray-500 italic mt-2">
+                  Precio experimental (primeros 2 años) para máxima
+                  accesibilidad. Precio aumentará cuando se integre Lengua de
+                  Señas Chilena (Fase 2).
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-2xl font-bold text-primary mb-6">
+            🏛️ B2G: Licenciamiento
+          </h3>
+          <p class="text-text-primary text-sm mb-4">
+            <strong>Objetivo:</strong> Escala y ingresos predecibles del Estado.
+          </p>
+          <ul class="space-y-4 text-text-primary">
+            <li class="flex gap-3">
+              <span class="text-primary-light font-bold">→</span>
+              <div>
+                <p class="font-semibold text-primary">SENADIS</p>
+                <p class="text-sm">
+                  Subsidio estatal. 20K beneficiarios potenciales en Chile.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-primary-light font-bold">→</span>
+              <div>
+                <p class="font-semibold text-primary">Telemedicina</p>
+                <p class="text-sm">
+                  Consultorios integran Rongo para accesibilidad de pacientes
+                  sordos.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-dark mt-12">
+        <h3 class="text-2xl font-bold text-primary mb-6 text-center">
+          Proyección 18 Meses (Conservadora)
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-primary-light">50K</p>
+            <p class="text-text-primary text-sm">Descargas en Mes 6</p>
+            <p class="text-accent font-semibold">$15K ARR</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-primary-light">200K</p>
+            <p class="text-text-primary text-sm">Descargas en Mes 12</p>
+            <p class="text-accent font-semibold">$80K ARR</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-primary-light">500K</p>
+            <p class="text-text-primary text-sm">Descargas en Mes 18</p>
+            <p class="text-accent font-semibold">$250K ARR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section
+    id="roadmap"
+    class="py-20 px-4 bg-gradient-to-b from-primary/5 to-accent/8"
+  >
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">
+        Roadmap: De la Inclusión Comunicacional a la Inclusión Cultural
+      </h2>
+      <p class="section-subtitle text-center">
+        Un viaje de 3 años. Cada fase resuelve un problema real.
+      </p>
+
+      <div class="space-y-6 md:space-y-8 mt-12 md:mt-16 max-w-4xl mx-auto px-0">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <div class="flex flex-col items-center">
+            <div
+              class="w-16 h-16 rounded-full bg-accent flex items-center justify-center text-primary font-bold text-2xl"
+            >
+              1
+            </div>
+            <div class="w-1 h-32 bg-accent/30"></div>
+          </div>
+          <div class="roadmap-phase active-phase card flex-1">
+            <div class="phase-badge">EN DESARROLLO 🚧</div>
+            <h3 class="text-lg sm:text-2xl font-bold text-primary mb-2">
+              Fase 1: MVP Android - Inclusión por Texto
+            </h3>
+            <p class="text-accent font-semibold text-sm mb-4">2026</p>
+            <p class="text-text-primary text-sm mb-4">
+              <strong>Meta:</strong> Validar que una persona sorda puede responder
+              una llamada telefónica sin intermediarios, de forma privada y offline.
+            </p>
+            <ul class="space-y-2 text-sm text-text-primary">
+              <li>✅ STT/TTS offline funcionando</li>
+              <li>✅ Integración con GSM/VoLTE nativo</li>
+              <li>✅ 100+ usuarios testeando en producción</li>
+              <li>✅ Alcance 50K descargas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <div class="flex flex-col items-center">
+            <div
+              class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-accent flex items-center justify-center text-primary font-bold text-lg sm:text-2xl flex-shrink-0"
+            >
+              2
+            </div>
+            <div class="w-1 h-20 sm:h-32 bg-accent/30 mt-2 sm:mt-0"></div>
+          </div>
+          <div class="card flex-1 border-2 border-primary-light">
+            <h3 class="text-lg sm:text-2xl font-bold text-primary mb-2">
+              Fase 2: Lengua de Señas Chilena - Inclusión Cultural
+            </h3>
+            <p class="text-primary-light font-semibold text-sm mb-4">2027</p>
+            <p class="text-text-primary text-sm mb-4">
+              <strong>Meta:</strong> No solo que lean texto. Que vean un avatar señando
+              en tiempo real. Porque la LSCh es un derecho cultural.
+            </p>
+            <ul class="space-y-2 text-sm text-text-primary">
+              <li>🎯 Creación de datasets para LSCh (mayor desafío)</li>
+              <li>🎯 Avatar 3D en pantalla "señando"</li>
+              <li>🎯 Generación de LSCh en tiempo real</li>
+              <li>🎯 Soporte para intérpretes virtuales</li>
+              <li>🎯 Primera app de llamadas en LSCh</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <div class="flex flex-col items-center">
+            <div
+              class="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-accent flex items-center justify-center text-primary font-bold text-lg sm:text-2xl flex-shrink-0"
+            >
+              3
+            </div>
+          </div>
+          <div class="card flex-1 border-2 border-accent">
+            <h3 class="text-lg sm:text-2xl font-bold text-primary mb-2">
+              Fase 3: Expansión Global - De Chile para el Mundo, para Todos
+            </h3>
+            <p class="text-accent font-semibold text-sm mb-4">2028-2030</p>
+            <p class="text-text-primary text-sm mb-4">
+              <strong>Meta:</strong> Que 1.5 billones de personas sordas en el mundo
+              puedan usar Rongo en su idioma y su lengua de señas.
+            </p>
+            <ul class="space-y-2 text-sm text-text-primary">
+              <li>🌍 iOS (70% del código reutilizable en Rust)</li>
+              <li>🌍 LSM (México), ASL (USA), LSF (Francia)</li>
+              <li>🌍 Soporte multiidioma: 50+ idiomas hablados</li>
+              <li>🌍 Alianzas con ONG de accesibilidad global</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto Social -->
+  <section id="impacto" class="py-20 px-4 bg-light-bg">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title text-center">
+        Impacto Verificable en Tres Ejes
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="card">
+          <h3 class="text-lg font-bold text-primary mb-4">
+            ⚖️ Derechos Fundamentales
+          </h3>
+          <ul class="space-y-3 text-text-primary text-sm leading-relaxed">
+            <li>
+              ✅ <strong>Autonomía:</strong> Contestar una llamada sin depender de
+              familia o amigos.
+            </li>
+            <li>
+              ✅ <strong>Privacidad:</strong> Que nadie escuche tus conversaciones
+              personales.
+            </li>
+            <li>
+              ✅ <strong>Seguridad:</strong> Poder llamar al 131 en una emergencia
+              médica.
+            </li>
+            <li>
+              ✅ <strong>Dignidad:</strong> Sentir que tienes voz en la sociedad.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg font-bold text-primary mb-4">
+            🇨🇱 Descentralización Tecnológica
+          </h3>
+          <ul class="space-y-3 text-text-primary text-sm leading-relaxed">
+            <li>
+              ✅ <strong>Primera solución IA especializada</strong> hecha en Chile
+              que compite globalmente.
+            </li>
+            <li>
+              ✅ <strong>Demuestra que es posible</strong> innovar en inclusión desde
+              regiones.
+            </li>
+            <li>
+              ✅ <strong>Empleos técnicos</strong> de calidad en Valparaíso, no en
+              Silicon Valley.
+            </li>
+            <li>
+              ✅ <strong>IP chilena</strong> que puede ser exportada a otros países.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg font-bold text-primary mb-4">
+            📋 Precedente Legal
+          </h3>
+          <ul class="space-y-3 text-text-primary text-sm leading-relaxed">
+            <li>
+              ✅ <strong>GDPR:</strong> Cumplimiento de privacidad europea desde el
+              MVP.
+            </li>
+            <li>
+              ✅ <strong>Ley 19.628:</strong> Protección de datos chilena garantizada.
+            </li>
+            <li>
+              ✅ <strong>ODS 10:</strong> Reducción de desigualdades (ONU).
+            </li>
+            <li>
+              ✅ <strong>Caso de uso:</strong> Para reguladores como modelo de accesibilidad
+              privada.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 sm:mt-12 bg-white rounded-xl p-4 sm:p-6 md:p-8 border-2 border-primary">
+        <h4 class="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">La Pregunta Real</h4>
+        <p class="text-text-primary leading-relaxed mb-3 sm:mb-4">
+          ¿Cuántas personas en el mundo tienen derecho a una llamada telefónica
+          privada? <strong>Todas.</strong>
+        </p>
+        <p class="text-text-primary leading-relaxed">
+          Rongo no es una app más. Es un reconocimiento de que las personas
+          sordas merecen el mismo acceso a la comunicación que todos. Es un acto
+          de justicia tecnológica.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inversión -->
+  <section class="py-20 px-4 bg-gradient-to-b from-accent/8 to-primary/5">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="section-title">Por Qué Invertir en Rongo</h2>
+
+      <div class="grid md:grid-cols-2 gap-12 mt-12 mb-16">
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-8">
+            Oportunidad de Mercado
+          </h3>
+          <div class="space-y-6 text-left">
+            <div class="flex gap-4">
+              <span class="text-4xl">📊</span>
+              <div>
+                <p class="font-bold text-primary">700K en Chile</p>
+                <p class="text-sm text-text-primary">
+                  Mercado validado, necesidad comprobada
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-4xl">🌎</span>
+              <div>
+                <p class="font-bold text-primary">1.5 Billones globalmente</p>
+                <p class="text-sm text-text-primary">
+                  Mercado subexplotado, sin jugador dominante
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-4xl">💰</span>
+              <div>
+                <p class="font-bold text-primary">TAM: $8.5B USD</p>
+                <p class="text-sm text-text-primary">
+                  Accesibilidad móvil sin regulador claro = oportunidad
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-8">
+            Ventaja Competitiva
+          </h3>
+          <div class="space-y-6 text-left">
+            <div class="flex gap-4">
+              <span class="text-4xl">🧠</span>
+              <div>
+                <p class="font-bold text-primary">Rust + Edge AI</p>
+                <p class="text-sm text-text-primary">
+                  Barrera técnica alta, difícil de replicar
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-4xl">🔒</span>
+              <div>
+                <p class="font-bold text-primary">Privacidad First</p>
+                <p class="text-sm text-text-primary">
+                  Diferenciador creciente en era post-GDPR
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-4xl">📱</span>
+              <div>
+                <p class="font-bold text-primary">Offline-Ready</p>
+                <p class="text-sm text-text-primary">
+                  Funciona en zonas rurales donde otros fallan
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-hero rounded-xl p-6 sm:p-8 md:p-12 text-white text-center">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Inversión Requerida</h3>
+        <p class="text-white/80 text-sm sm:text-base">Contacta para detalles específicos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-16 sm:py-20 px-4 bg-light-bg">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="section-title">¿Listo para Revolucionar la Accesibilidad?</h2>
+      <p class="section-subtitle">El silencio no es opción. Contáctanos hoy.</p>
+
+      <div class="flex gap-3 sm:gap-4 justify-center flex-wrap mb-8 sm:mb-12">
+        <button class="btn-primary text-sm sm:text-base py-2 sm:py-3">Agendar Reunión</button>
+        <button class="btn-secondary text-sm sm:text-base py-2 sm:py-3">Descargar Informe Técnico</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-12 sm:mt-16">
+        <div>
+          <p class="text-text-primary mb-2 font-semibold">📧 Email</p>
+          <p class="text-primary-light font-bold">contacto@hotusoft.cl</p>
+        </div>
+        <div>
+          <p class="text-text-primary mb-2 font-semibold">📍 Ubicación</p>
+          <p class="text-primary-light font-bold">
+            Cartagena, Valparaíso, Chile 🇨🇱
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 sm:py-8 px-4 gradient-hero">
+    <div class="max-w-6xl mx-auto text-center text-white text-xs sm:text-sm">
+      <p class="font-semibold">© 2026 Hotu Software Solutions SpA</p>
+      <p class="mt-1 sm:mt-2 text-white/80">
+        Rongo: Inclusión Comunicacional escuchar para conectar
+      </p>
+      <p class="mt-1 sm:mt-2 text-white/70">Nacida en Chile 🇨🇱 • Para el mundo 🌍</p>
+    </div>
+  </footer>
+
+  <script is:inline>
+    window.addEventListener("load", function () {
+      var accordionTriggers = document.querySelectorAll(
+        ".accordion-wrapper button",
+      );
+      console.log(
+        "Accordion script loaded. Found " +
+          accordionTriggers.length +
+          " triggers.",
+      );
+
+      for (var i = 0; i < accordionTriggers.length; i++) {
+        accordionTriggers[i].addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          var wrapper = this.closest(".accordion-wrapper");
+          var content = wrapper.querySelector(".accordion-content");
+          var arrow = wrapper.querySelector(".accordion-arrow");
+
+          // Close all others
+          var allWrappers = document.querySelectorAll(".accordion-wrapper");
+          for (var j = 0; j < allWrappers.length; j++) {
+            if (allWrappers[j] !== wrapper) {
+              allWrappers[j]
+                .querySelector(".accordion-content")
+                .classList.add("hidden");
+              var otherArrow = allWrappers[j].querySelector(".accordion-arrow");
+              if (otherArrow) otherArrow.classList.remove("rotate-180");
+            }
+          }
+
+          // Toggle current
+          content.classList.toggle("hidden");
+          if (arrow) arrow.classList.toggle("rotate-180");
+        });
+      }
+    });
+  </script>
+</HonRongoLayout>
