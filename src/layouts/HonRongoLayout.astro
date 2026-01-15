@@ -62,7 +62,7 @@ const ogImageURL = `${siteURL}/social.webp`;
 
     <!-- Mobile Menu Button (visible only on mobile) -->
     <button
-      id="mobile-menu-btn"
+      id="honorongo-mobile-menu-btn"
       class="lg:hidden fixed left-4 top-20 z-50 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg"
       aria-label="Abrir menú de navegación"
       type="button"
@@ -83,17 +83,17 @@ const ogImageURL = `${siteURL}/social.webp`;
 
     <!-- Mobile Menu Overlay -->
     <div
-      id="mobile-menu-overlay"
-      class="hidden lg:hidden fixed inset-0 bg-black/50 z-30 transition-opacity duration-300"
+      id="honorongo-mobile-menu-overlay"
+      class="hidden lg:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
       style="display: none;"
     >
     </div>
 
     <!-- Mobile Menu (slides from left) -->
     <aside
-      id="mobile-menu"
-      class="lg:hidden fixed left-0 top-0 h-screen w-72 bg-white z-40 shadow-2xl overflow-y-auto transition-all duration-300 ease-out"
-      style="transform: translateX(-100%); top: 0;"
+      id="honorongo-mobile-menu"
+      class="lg:hidden fixed left-0 top-0 h-screen w-64 bg-white z-50 shadow-2xl overflow-y-auto transition-all duration-300 ease-out"
+      style="transform: translateX(-100%);"
     >
       <HonRongoSidebar />
     </aside>
@@ -115,22 +115,39 @@ const ogImageURL = `${siteURL}/social.webp`;
 
     <!-- No Footer en HonoRongo -->
 
-    <script is:inline>
-      // Simple and direct mobile menu handler
-      document.addEventListener("DOMContentLoaded", function () {
-        const btn = document.getElementById("mobile-menu-btn");
-        const menu = document.getElementById("mobile-menu");
-        const overlay = document.getElementById("mobile-menu-overlay");
+    <script>
+      // Mobile menu handler - runs on initial load and after navigation
+      function initMobileMenu() {
+        console.log("Initializing mobile menu...");
+
+        const btn = document.getElementById("honorongo-mobile-menu-btn");
+        const menu = document.getElementById("honorongo-mobile-menu");
+        const overlay = document.getElementById(
+          "honorongo-mobile-menu-overlay",
+        );
+
+        console.log("Elements found:", {
+          btn: !!btn,
+          menu: !!menu,
+          overlay: !!overlay,
+        });
 
         if (!btn || !menu || !overlay) {
-          console.log("Menu elements not found");
+          console.error("Menu elements not found!");
           return;
         }
 
+        // Remove existing listeners to avoid duplicates
+        // (Removed cloning - using direct attachment)
+
         // Toggle menu
-        btn.onclick = function (e) {
+        btn.addEventListener("click", function (e) {
           e.preventDefault();
+          e.stopPropagation();
+          console.log("Menu button clicked!");
+
           const isOpen = menu.style.transform === "translateX(0px)";
+          console.log("Menu is open:", isOpen);
 
           if (isOpen) {
             // Close menu
@@ -143,23 +160,25 @@ const ogImageURL = `${siteURL}/social.webp`;
             overlay.style.display = "block";
             document.body.style.overflow = "hidden";
           }
-        };
+        });
 
         // Close on overlay click
-        overlay.onclick = function () {
+        overlay.addEventListener("click", function () {
           menu.style.transform = "translateX(-100%)";
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
-        };
+        });
 
         // Close on link click
         const links = menu.querySelectorAll("a");
         links.forEach(function (link) {
-          link.onclick = function () {
-            menu.style.transform = "translateX(-100%)";
-            overlay.style.display = "none";
-            document.body.style.overflow = "auto";
-          };
+          link.addEventListener("click", function () {
+            setTimeout(() => {
+              menu.style.transform = "translateX(-100%)";
+              overlay.style.display = "none";
+              document.body.style.overflow = "auto";
+            }, 100);
+          });
         });
 
         // Close on escape
@@ -170,7 +189,15 @@ const ogImageURL = `${siteURL}/social.webp`;
             document.body.style.overflow = "auto";
           }
         });
-      });
+
+        console.log("Mobile menu initialized successfully!");
+      }
+
+      // Initialize on load
+      document.addEventListener("DOMContentLoaded", initMobileMenu);
+
+      // Re-initialize after Astro page transitions
+      document.addEventListener("astro:page-load", initMobileMenu);
     </script>
   </body>
 </html>
