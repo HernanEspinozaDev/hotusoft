@@ -3,7 +3,6 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
-  isHonoRongo?: boolean;
 }
 
 import "../styles/main.css";
@@ -19,7 +18,6 @@ const {
   title,
   description = "HotuSoft - Desarrollo de Software, Automatización de Procesos y Soluciones Cloud para empresas y pymes en Chile.",
   image = "/social.webp",
-  isHonoRongo = false,
 } = Astro.props;
 
 const ogImageURL = `${siteURL}${image}`;
@@ -149,7 +147,7 @@ const websiteSchema = {
     <title>{title}</title>
   </head>
   <body class="font-sans">
-    <Navbar isHonoRongo={isHonoRongo} />
+    <Navbar />
     {
       (Astro.url.pathname === "/" ||
         Astro.url.pathname.endsWith("/hotusoft") ||

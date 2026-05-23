@@ -1,25 +1,13 @@
 ---
 const base = "";
 
-interface Props {
-  isHonoRongo?: boolean;
-}
+const logoClass = "h-12 w-auto object-contain";
 
-const { isHonoRongo = false } = Astro.props;
-
-const logoSrc = isHonoRongo ? base + "/images/logorongo.webp" : base + "/images/logo.webp";
-// Adjust logo size for HonoRongo if needed, or keep standard
-const logoClass = "h-12 w-auto object-contain"; 
-
-const hoverTextClass = isHonoRongo 
-  ? "text-slate-600 hover:text-hono-blue-mid" 
-  : "text-slate-600 hover:text-blue-600";
+const hoverTextClass = "text-slate-600 hover:text-blue-600";
 
 const buttonClass = "px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40";
 
-const mobileLinkClass = isHonoRongo
-  ? "block py-3 px-4 text-slate-800 font-semibold bg-slate-50/50 rounded-lg hover:text-hono-blue-mid transition-colors"
-  : "block py-3 px-4 text-slate-800 font-semibold bg-slate-50/50 rounded-lg hover:text-blue-600 transition-colors";
+const mobileLinkClass = "block py-3 px-4 text-slate-800 font-semibold bg-slate-50/50 rounded-lg hover:text-blue-600 transition-colors";
 
 const navItems = [
   { name: "Inicio", href: base + "/#hero", type: "link" },
@@ -37,8 +25,6 @@ const navItems = [
   },
   { name: "Precios", href: base + "/#precios", type: "link" },
   { name: "Contacto", href: base + "/#contacto", type: "link" },
-  // Adding HonoRongo link with special highlight property (optional typing in JS/Astro frontmatter)
-  { name: "Rongo", href: base + "/honorongo", type: "link", highlight: true },
 ];
 ---
 
@@ -51,8 +37,8 @@ const navItems = [
       <!-- Logo -->
       <a href={base + "/"} class="flex items-center group">
         <img
-          src={isHonoRongo ? base + "/images/logohonorongobyhotusoft.webp" : base + "/images/logo.webp"}
-          alt={isHonoRongo ? "HonoRongo by HotuSoft" : "HotuSoft"}
+          src={base + "/images/logo.webp"}
+          alt="HotuSoft"
           class={logoClass}
           width="153"
           height="48"
@@ -81,7 +67,7 @@ const navItems = [
                       {item.items?.map(subItem => (
                         <a 
                           href={subItem.href}
-                          class={`block px-4 py-3 text-sm rounded-lg transition-colors whitespace-nowrap ${isHonoRongo ? "text-slate-600 hover:text-hono-blue-mid hover:bg-slate-50" : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"}`}
+                          class="block px-4 py-3 text-sm rounded-lg transition-colors whitespace-nowrap text-slate-600 hover:text-blue-600 hover:bg-slate-50"
                         >
                           {subItem.name}
                         </a>
@@ -94,7 +80,7 @@ const navItems = [
                   href={item.href}
                   class={`font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:transition-all 
                   ${item.highlight ? 'text-hono-lavanda hover:text-hono-blue-mid' : hoverTextClass} 
-                  ${isHonoRongo ? "after:bg-hono-blue-mid" : "after:bg-blue-600"}`}
+                  after:bg-blue-600`}
                 >
                   {item.name}
                 </a>
@@ -117,7 +103,7 @@ const navItems = [
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class={`lg:hidden p-2 transition-colors ${isHonoRongo ? "text-slate-600 hover:text-hono-blue-mid" : "text-slate-600 hover:text-blue-600"}`}
+        class={`lg:hidden p-2 transition-colors text-slate-600 hover:text-blue-600`}
         aria-label="Abrir menu"
       >
         <svg
@@ -154,7 +140,7 @@ const navItems = [
                     {item.items?.map(subItem => (
                       <a 
                         href={subItem.href}
-                        class={`block py-2 px-4 rounded-lg text-sm transition-all ${isHonoRongo ? "text-slate-500 hover:text-hono-blue-mid hover:bg-slate-50" : "text-slate-500 hover:text-blue-600 hover:bg-blue-50/50"}`}
+                        class="block py-2 px-4 rounded-lg text-sm transition-all text-slate-500 hover:text-blue-600 hover:bg-blue-50/50"
                       >
                         {subItem.name}
                       </a>
@@ -164,7 +150,7 @@ const navItems = [
               ) : (
                 <a
                   href={item.href}
-                  class={`block py-3 px-4 rounded-lg font-medium transition-all ${isHonoRongo ? "text-slate-600 hover:text-hono-blue-mid hover:bg-slate-50" : "text-slate-600 hover:text-blue-600 hover:bg-blue-50"}`}
+                  class="block py-3 px-4 rounded-lg font-medium transition-all text-slate-600 hover:text-blue-600 hover:bg-blue-50"
                 >
                   {item.name}
                 </a>
